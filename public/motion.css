@@ -39,3 +39,6 @@ html body #main .color-band--cream .textile-underline,html body #main .color-ban
 html body #main .color-band--terracotta .textile-underline,html body #main .color-band--terracotta .textile-underline *{color:#f3dbb9!important}
 html body #main .figma-home-feature .textile-underline,html body #main .figma-home-feature .textile-underline *{color:#f3dbb9!important}
 @media(max-width:620px){.thread-title-copy>.textile-underline{height:25px}.thread-title-copy{padding-bottom:21px}}
+
+/* Softened side fibres; retain the main twisted strand and drawing motion. */
+@keyframes thread-fuzz{from{opacity:0}to{opacity:.32}}

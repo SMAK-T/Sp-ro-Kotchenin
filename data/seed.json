@@ -1,0 +1,137 @@
+{
+  "events": [
+    {
+      "date": "2026-11-21",
+      "title": "Découvrir le filage au fuseau",
+      "image": "filage-fuseau.jpg",
+      "start": "14 h – 16 h",
+      "place": "Lieu à confirmer",
+      "description": "Observer les fibres et découvrir comment le geste transforme la matière en fil.",
+      "demo": true,
+      "id": "1ef92e65-a619-4254-a01c-f07e0cf80c17",
+      "published": true
+    },
+    {
+      "date": "2026-12-05",
+      "title": "S’initier au tissage aux tablettes",
+      "image": "tissage-tablettes.jpg",
+      "start": "10 h – 12 h",
+      "place": "Lieu à confirmer",
+      "description": "Explorer le croisement des fils et les motifs d’un galon tissé aux tablettes.",
+      "demo": true,
+      "id": "69fc392b-0c08-476d-8d2d-db44e5ee66c7",
+      "published": true
+    },
+    {
+      "date": "2026-12-19",
+      "title": "Explorer la teinture naturelle",
+      "image": "teinture-vegetale.jpg",
+      "start": "14 h – 16 h",
+      "place": "Lieu à confirmer",
+      "description": "Découvrir les matières colorantes et les étapes de la teinture des fibres.",
+      "demo": true,
+      "id": "2e4333e7-22a1-456c-a5cc-a716cfcd4e5b",
+      "published": true
+    }
+  ],
+  "partners": [
+    {
+      "id": "74e04d27-8061-4a82-ae1e-2f21ece4a8f7",
+      "name": "Musée de Tautavel",
+      "image": "logo-musee-tautavel.png",
+      "published": true
+    },
+    {
+      "id": "1fb277c3-5788-4a1b-807e-2bdb3c3c97fa",
+      "name": "Musée de Gergovie",
+      "image": "logo-musee-gergovie.jpg",
+      "published": true
+    },
+    {
+      "id": "009d189a-b92a-41ef-b053-2a2d42189469",
+      "name": "Musée Henri Prades — Site archéologique Lattara",
+      "image": "logo-musee-lattara.png",
+      "published": true
+    },
+    {
+      "id": "c7a82eaa-f4bb-4ab1-8096-cffacc3a47cb",
+      "name": "Université Paul-Valéry Montpellier 3",
+      "image": "logo-universite-paul-valery.webp",
+      "published": true
+    },
+    {
+      "id": "2fe31e77-aa16-4ba0-a367-34ab24173142",
+      "name": "CERAC",
+      "image": "logo-cerac.webp",
+      "published": true
+    },
+    {
+      "id": "8f12c7b6-20e9-423a-bf70-d372753530a8",
+      "name": "Festival du lin et de la fibre artistique",
+      "image": "logo-festival-lin.webp",
+      "published": true
+    },
+    {
+      "id": "66589f10-c2d9-4234-b21e-f98359b76e0d",
+      "name": "Lozère Tourisme",
+      "image": "logo-lozere-tourisme.png",
+      "published": true
+    }
+  ],
+  "services": [
+    {
+      "id": "filage",
+      "title": "Filage",
+      "image": "filage-fuseau.jpg",
+      "description": "Avec Neotisse, découvrez la transformation de la laine ou du lin en fil. L’atelier invite à observer les fibres, comprendre le geste et s’initier à sa pratique.",
+      "public": "Scolaires, centres de loisirs, grand public et structures culturelles.",
+      "modalities": "Initiation ou démonstration ; niveau, effectif et durée définis selon le public.",
+      "published": true
+    },
+    {
+      "id": "tissage-vertical",
+      "title": "Tissage sur métier vertical",
+      "image": "metier-pesons.jpg",
+      "description": "Découvrez le rôle des fils de chaîne et de trame à travers l’observation et la pratique du tissage sur métier vertical.",
+      "public": "Scolaires, groupes, musées et événements culturels.",
+      "modalities": "Démonstration ou atelier accompagné ; installation et espace convenus avec la structure.",
+      "published": true
+    },
+    {
+      "id": "tissage-tablettes",
+      "title": "Tissage aux tablettes",
+      "image": "tissage-tablettes.jpg",
+      "description": "Une découverte du tissage aux tablettes pour comprendre comment le mouvement des fils peut produire des motifs et des bandes tissées.",
+      "public": "Groupes, publics scolaires et visiteurs de lieux culturels ; adaptation selon l’âge.",
+      "modalities": "Découverte guidée ou initiation ; nombre de participants et durée à convenir.",
+      "published": true
+    },
+    {
+      "id": "teinture-naturelle",
+      "title": "Teinture naturelle",
+      "image": "teinture-vegetale.jpg",
+      "description": "Explorez avec Neotisse les plantes tinctoriales et leur rencontre avec les fibres. L’atelier relie observation des matières, préparation des couleurs et découverte des savoir-faire.",
+      "public": "Structures culturelles, groupes scolaires, associations et grand public.",
+      "modalities": "Atelier ou démonstration ; conditions d’accueil, espace et matériel précisés dans la proposition.",
+      "published": true
+    },
+    {
+      "id": "sur-mesure",
+      "title": "Interventions sur mesure",
+      "image": "atelier-rencontre.jpg",
+      "description": "Associez plusieurs savoir-faire ou imaginez un parcours de médiation autour d’un thème. Neotisse adapte sa proposition à votre projet, votre public et votre lieu.",
+      "public": "Scolaires, centres de loisirs, établissements culturels, associations, entreprises et événements.",
+      "modalities": "Sur devis ; indiquez le lieu, les dates souhaitées, le public, l’effectif et les objectifs.",
+      "published": true
+    }
+  ],
+  "reviews": [],
+  "messages": [],
+  "settings": {
+    "email": "asso.neotisse@gmail.com",
+    "phone": "06 48 65 58 16",
+    "city": "Montpellier, France",
+    "instagram": "https://www.instagram.com/neotisse.asso/",
+    "facebook": "https://www.facebook.com/profile.php?id=61558744726575"
+  }
+}

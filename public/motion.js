@@ -29,10 +29,12 @@
       }
       svg.append(makePath(d, strand % 3 === 0 ? 1.8 : 1.15, .62 + strand * .05));
     }
-    for (let i = 0; i < 110; i++) {
-      const x = 10 + i * 5.55, sign = i % 2 ? 1 : -1;
-      const y = baseline(x) + sign * 2, len = 3 + (Math.sin(i * 7.7) + 1) * 4;
-      svg.append(makePath(`M${x} ${y}q${Math.sin(i * 5.3) * 3} ${sign * len * .6} 2 ${sign * len}`, .7, .65));
+    for (let i = 0; i < 75; i++) {
+      const x = 12 + i * 8.1, sign = i % 2 ? 1 : -1;
+      const y = baseline(x) + sign * 1.8;
+      const length = 1.2 + (Math.sin(i * 7.7) + 1) * .9;
+      const lean = 1.7 + (Math.sin(i * 3.1) + 1) * 1.3;
+      svg.append(makePath(`M${x} ${y}q${lean * .45} ${sign * length * .75} ${lean} ${sign * length}`, .4, .32));
     }
     copy.append(svg); heading.append(copy); targets.push(copy);
     [...svg.children].forEach((path, index) => {

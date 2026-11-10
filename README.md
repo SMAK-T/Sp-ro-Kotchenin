@@ -22,3 +22,6 @@ migrate-local.cjs est un import initial nécessitant les sources WordPress du do
 ## Direction éditoriale
 
 La refonte visuelle utilise `public/editorial.css` et `public/editorial.js`, chargés après les styles initiaux : diaporama de cinq photographies, heros courbes, partenaires horizontaux, formulaire éditorial et calendrier avec sélection du jour. Les crédits des photographies sont dans `docs/credits-photos.md`. Le formulaire et le livre d’or restent des aperçus sans envoi. Le calendrier n’affiche aucun événement fictif.
+
+Administration : voir [le guide du backoffice](docs/backoffice.md).
+

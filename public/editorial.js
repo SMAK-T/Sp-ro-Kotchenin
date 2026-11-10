@@ -1,4 +1,5 @@
-(() => {
+(async () => {
+  if(window.neotisseContentReady){const content=await window.neotisseContentReady;if(content)window.neotisseWorkshops=content.events;}
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const hero = document.querySelector('.hero-slideshow');
   if (hero) {
@@ -79,7 +80,7 @@
       const list = calendar.querySelector('.day-events');
       list.replaceChildren();
       const matching = events.filter((event) => event.date === key(selected));
-      const upcoming = events.filter(event => event.date >= key(today));
+      const upcoming = events.filter(event => event.date >= key(today)).sort((a,b)=>a.date.localeCompare(b.date));
       const displayed = matching.length ? matching : upcoming;
       if (!displayed.length) {
         const empty = document.createElement('div');
@@ -100,7 +101,7 @@
         const date = document.createElement('time'); date.dateTime = event.date; date.textContent = new Date(event.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
         const title = document.createElement('h4'); title.textContent = event.title;
         const hours = document.createElement('p'); hours.textContent = `${event.start} · ${event.place}`;
-        const badge = document.createElement('p'); badge.className = 'calendar-demo'; badge.textContent = 'Atelier et horaires d’exemple · sans inscription';
+        const badge = document.createElement('p'); badge.className = 'calendar-demo'; badge.textContent = event.demo ? 'Atelier et horaires d’exemple · sans inscription' : ''; 
         const detail = document.createElement('details');
         const summary = document.createElement('summary'); summary.textContent = 'Voir les détails';
         const description = document.createElement('p'); description.textContent = event.description;
@@ -124,7 +125,7 @@
         const count = events.filter(event => event.date === key(date)).length;
         if (count) {
           button.classList.add('has-event');
-          button.setAttribute('aria-label', button.getAttribute('aria-label') + `, ${count} atelier d’exemple`);
+          button.setAttribute('aria-label', button.getAttribute('aria-label') + `, ${count} rendez-vous`);
         }
         if (key(date) === key(today)) button.setAttribute('aria-current', 'date');
         button.addEventListener('click', () => { selected = date; render(day); });

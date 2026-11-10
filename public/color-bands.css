@@ -36,3 +36,10 @@ html body #main>.color-band--terracotta #orienter-demande{max-width:1300px}
 html body #main>.color-band--terracotta #orienter-demande a{text-decoration:underline;text-underline-offset:4px}
 html body #main>.color-band--terracotta .mcgee-philosophy-columns .tree-grid article{border-top-color:#f7f4ec55}
 @media(max-width:700px){html body #main>.color-band>.client-section,html body #main>.color-band>.home-section{padding-top:48px;padding-bottom:48px}body.home #main>.color-band>.figma-home-cards{padding-block:40px}html body #main>.color-band--sage .inquiry-layout #ecrivez-nous{padding:25px 20px}}
+/* Deep green background for interior-page heroes only. */
+html body:not(.home) #main .client-intro.curved-hero{background:#354638}
+html body:not(.home) #main .client-intro.curved-hero>div:first-child,
+html body:not(.home) #main .client-intro.curved-hero>div:first-child *{color:#f7f4ec!important;text-shadow:none}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta{border-color:#f7f4ecb3;background:transparent}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta::before{border-color:#f7f4ec88}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta:hover{background:#ffffff12}
