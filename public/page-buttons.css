@@ -1,0 +1,78 @@
+/* Each page's calls to action use its navigation item's textile gesture.
+   Keep calendar controls, carousel arrows and footer navigation independent. */
+body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a){position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:18px;font:400 16px/1.5 var(--serif);letter-spacing:0;text-transform:none;padding:12px 22px;min-height:48px;color:var(--ink);background:transparent;box-shadow:none;transition:background .3s,color .3s}
+body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a):hover{filter:none;text-decoration:none}
+body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a)::before,body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a)::after{content:'';position:absolute;pointer-events:none}
+
+/* Accueil — a fine thread unrolls under the label. */
+body.home .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a){border:0;border-radius:0;background:transparent;padding-inline:0}
+body.home .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a)::after{left:0;right:0;bottom:5px;width:auto;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+body.home .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a):is(:hover,:focus-visible)::after{transform:scaleX(1)}
+body.home .hero-slideshow :is(.button,.text-link){color:white}
+body.home .home-invitation .button{color:var(--cream)}
+body.home .service-chips a{justify-content:space-between;padding-block:23px;border-bottom:1px solid #35463825}
+
+/* Nos actions — rounded outline, filled from left to right. */
+body.actions-page .entry-content :is(.button,.text-link,.home-text-link,.client-card a){border:1px solid var(--rust);border-radius:999px}
+body.actions-page .entry-content :is(.button,.text-link,.home-text-link,.client-card a)::after{display:none}
+body.actions-page .entry-content :is(.button,.text-link,.home-text-link,.client-card a)::before{inset:0;background:var(--line);border-radius:inherit;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .5s}
+body.actions-page .entry-content :is(.button,.text-link,.home-text-link,.client-card a):is(:hover,:focus-visible)::before{transform:scaleX(1)}
+
+/* Services — rounded rectangle with visible topstitching. */
+body.services-page .entry-content :is(.button,.text-link,.home-text-link){border:1px solid var(--rust);border-radius:6px}
+body.services-page .entry-content :is(.button,.text-link,.home-text-link)::after{display:none}
+body.services-page .entry-content :is(.button,.text-link,.home-text-link)::before{inset:5px;border:1px dashed var(--rust);border-radius:2px;opacity:.35;transition:opacity .35s}
+body.services-page .entry-content :is(.button,.text-link,.home-text-link):is(:hover,:focus-visible)::before{opacity:1}
+
+/* Agenda — the curved thread is only revealed by hover or keyboard focus. */
+body.agenda-page .entry-content :is(.button,.text-link,.home-text-link){border:0;border-radius:0;padding-right:72px;overflow:visible}
+body.agenda-page .entry-content :is(.button,.text-link,.home-text-link)::after{display:none}
+body.agenda-page .entry-content :is(.button,.text-link,.home-text-link)::before{width:43px;height:19px;right:12px;top:calc(50% - 9px);background:var(--rust);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 20'%3E%3Cpath d='M1 11C15-3 23 24 41 10M34 3l8 7-8 7' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") center/contain no-repeat;opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .45s}
+body.agenda-page .entry-content :is(.button,.text-link,.home-text-link):is(:hover,:focus-visible)::before{opacity:1;transform:translateX(5px)}
+body.agenda-page .entry-content :is(.button,.text-link,.home-text-link)>span[aria-hidden=true]{display:none}
+
+/* À propos — rectangular frame that acquires an interior woven border. */
+body.a-propos-page .entry-content :is(.button,.text-link,.home-text-link){border:1px solid #a88d73;border-radius:0}
+body.a-propos-page .entry-content :is(.button,.text-link,.home-text-link)::after{display:none}
+body.a-propos-page .entry-content :is(.button,.text-link,.home-text-link)::before{inset:4px;border:1px dashed var(--rust);transform:scale(.9);opacity:0;transition:transform .4s,opacity .4s}
+body.a-propos-page .entry-content :is(.button,.text-link,.home-text-link):is(:hover,:focus-visible)::before{transform:scale(1);opacity:1}
+body.a-propos-page .curved-hero .text-link{color:var(--cream);border-color:#f7f4ec80}
+body.a-propos-page .curved-hero .text-link::before{border-color:var(--cream)}
+
+/* Contact — pale rounded embroidered label. */
+body.contact-page .entry-content :is(.button,.text-link,.home-text-link){border:1px solid transparent;border-radius:999px;background:#ead8c4;color:var(--ink)}
+body.contact-page .entry-content :is(.button,.text-link,.home-text-link)::after{display:none}
+body.contact-page .entry-content :is(.button,.text-link,.home-text-link)::before{inset:4px;border:1px dashed var(--rust);border-radius:999px;opacity:0;transform:scale(.9);transition:opacity .35s,transform .4s}
+body.contact-page .entry-content :is(.button,.text-link,.home-text-link):is(:hover,:focus-visible)::before{opacity:.85;transform:scale(1)}
+@media(prefers-reduced-motion:reduce){body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a),body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a)::before,body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a)::after{transition:none}}
+
+/* Client preference: no italic typography anywhere on the site. */
+html body *,html body *::before,html body *::after{font-style:normal!important}
+
+/* Wider interior hero photography; keep the homepage slideshow unchanged. */
+@media(min-width:621px){body .client-intro.curved-hero{grid-template-columns:.9fr 1.1fr}body .curved-hero>.curved-photo{left:42%}body .hero-seam{left:42%;width:58%}body .curved-hero>div:first-child{padding-right:5vw}body .curved-hero h1{font-size:clamp(36px,4.1vw,64px)}}
+@media(min-width:621px){body .client-intro.curved-hero{grid-template-columns:.8fr 1.2fr}body .curved-hero>.curved-photo{left:35%}body .hero-seam{left:35%;width:65%}body .curved-hero>div:first-child{padding-left:4vw;padding-right:3vw}body .curved-hero h1{font-size:clamp(34px,3.7vw,58px)}}
+/* Client preference: black typography throughout, with readable surfaces. */
+html body,html body *{color:#000!important;text-shadow:none!important}
+body .hero-slide:after{background:linear-gradient(180deg,#f7f4ecce,#f7f4ec85 35%,#f7f4ecb8)}
+body.home .entry-content .home-invitation,body.a-propos-page .client-intro.curved-hero{background:var(--cream)}
+body .button,body .site-nav .nav-5,body .button:hover{background:#ead8c4}
+body.home .hero-slideshow .button-outline{border-color:#0008;background:#f7f4ec55}
+body.home .brand img{filter:none!important;mix-blend-mode:multiply}
+body.home:not(.neotisse-nav-scrolled) .site-nav .nav-1,body.home:not(.neotisse-nav-scrolled) .site-nav .nav-2,body.home:not(.neotisse-nav-scrolled) .site-nav .nav-4{border-color:#0008}
+body .calendar-grid>.calendar-date[aria-pressed=true]{background:#ead8c4}
+/* Restore the photographic homepage hero and its white typography. */
+html body.home .hero-slideshow,html body.home .hero-slideshow *{color:#fff!important}
+body.home .hero-slide:after{background:linear-gradient(180deg,#15231955,transparent 35%,#15231995)}
+body.home .hero-slideshow .button-outline{background:transparent;border-color:#ffffff99}
+body.home .hero-slideshow .button-outline:hover{background:#ffffff18}
+/* Restore navbar colors independently of the page's black body text. */
+html body .site-header,html body .site-header *{color:#354638!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header,html body.home:not(.neotisse-nav-scrolled) .site-header *{color:#fff!important}
+html body .site-header .nav-5,html body .site-header .nav-5 *,html body.home:not(.neotisse-nav-scrolled) .site-header .nav-5,html body.home:not(.neotisse-nav-scrolled) .site-header .nav-5 *{color:#354638!important}
+body.home:not(.neotisse-nav-scrolled) .site-header .brand img{filter:brightness(0) invert(1)!important;mix-blend-mode:normal}
+body.home:not(.neotisse-nav-scrolled) .site-nav .nav-1,body.home:not(.neotisse-nav-scrolled) .site-nav .nav-2,body.home:not(.neotisse-nav-scrolled) .site-nav .nav-4{border-color:#fff9}
+@media(max-width:900px){html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open *{color:#354638!important}body.home:not(.neotisse-nav-scrolled) .site-nav.open .nav-1,body.home:not(.neotisse-nav-scrolled) .site-nav.open .nav-2{border-color:var(--rust)}body.home:not(.neotisse-nav-scrolled) .site-nav.open .nav-4{border-color:#a88d73}}
+
+/* Selected textile photograph, without the reference website's text. */
+body .site-footer{background-image:linear-gradient(#f7f4ec55,#f7f4ec77),url('assets/media/footer-textile-teori.jpg');background-position:center;background-size:cover}body .footer-socials{display:flex;justify-content:flex-start;align-items:center;gap:18px;margin-top:22px}body .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;transition:transform .25s}body .footer-socials a:hover,body .footer-socials a:focus-visible{transform:translateY(-3px)}
