@@ -13,3 +13,7 @@ Licence : https://unsplash.com/license
 Fond du footer : photo des ceintures expérimentales fournie par Néotisse.
 
 Fond du footer remplacé à la demande du client par la photo de la référence Teori Studio : https://www.teoristudio.fr/ — PXL_20240106_143715430.jpg.
+
+## Visuel « Des savoirs qui prennent vie »
+
+Photo illustrative réelle : Yasin Onus, métier à tisser traditionnel, appareil Sony ILCE-7M3. Source : https://unsplash.com/photos/hGQTV3t6ctY — licence Unsplash. Fichier : atelier-tissage-yasin-onus.jpg. Ne représente pas une intervention de Néotisse.

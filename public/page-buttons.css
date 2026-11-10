@@ -76,3 +76,35 @@ body.home:not(.neotisse-nav-scrolled) .site-nav .nav-1,body.home:not(.neotisse-n
 
 /* Selected textile photograph, without the reference website's text. */
 body .site-footer{background-image:linear-gradient(#f7f4ec55,#f7f4ec77),url('assets/media/footer-textile-teori.jpg');background-position:center;background-size:cover}body .footer-socials{display:flex;justify-content:flex-start;align-items:center;gap:18px;margin-top:22px}body .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;transition:transform .25s}body .footer-socials a:hover,body .footer-socials a:focus-visible{transform:translateY(-3px)}
+/* Framed calls to action requested from the supplied screenshots. */
+body .calendar-controls button,body .calendar-today{border:1px solid #35463870;border-radius:6px;background:transparent;min-height:42px;padding:10px 16px;transition:background .25s,border-color .25s}
+body .calendar-controls button{min-width:44px}
+body .calendar-controls button:hover,body .calendar-today:hover{background:var(--line);border-color:var(--ink)}
+body.home .entry-content .hero-actions .button{border:1px solid #ffffffbb;border-radius:6px;padding:13px 24px;background:#15231922;min-height:48px}
+body.home .entry-content .hero-actions .button:hover{background:#ffffff20}
+body.home .entry-content .home-invitation .button{border:1px solid #35463870;border-radius:6px;padding:13px 25px;min-height:48px}
+body .section-nav{gap:12px 16px}
+body .section-nav a{border:1px solid #a88d7380;border-radius:5px;padding:11px 16px;text-decoration:none;background:transparent;transition:background .25s,border-color .25s}
+body .section-nav a:hover,body .section-nav a:focus-visible{background:var(--line);border-color:var(--rust)}
+@media(max-width:620px){body .section-nav{gap:10px;padding-inline:20px}body .section-nav a{padding:10px 12px}}
+
+/* Center the contact guidance and simplify its form. */
+body.contact-page #orienter-demande{text-align:center}body.contact-page #orienter-demande>p{margin-left:auto;margin-right:auto}body.contact-page #orienter-demande>ul{list-style:none;padding-left:0;max-width:900px;margin:0 auto 32px}body.contact-page #orienter-demande>ul li{margin-bottom:9px}body.contact-page #orienter-demande>h3{margin-left:auto;margin-right:auto}
+/* Keep navigation visible on every interior page. */
+body:not(.home) .site-header{position:sticky;top:0;z-index:1000;background:var(--cream);box-shadow:0 3px 16px #3546380d}
+body:not(.home) .entry-content [id]{scroll-margin-top:125px}
+@media(max-width:900px){body:not(.home) .entry-content [id]{scroll-margin-top:110px}}
+@media(max-width:620px){body:not(.home) .entry-content [id]{scroll-margin-top:100px}}
+/* Calm motion: subtle, one-time reveals without modifying scroll speed. */
+@media(prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .scroll-gentle{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform 1s cubic-bezier(.2,.65,.3,1)}
+  .scroll-gentle.scroll-settled{opacity:1;transform:translateY(0)}
+}
+@media(prefers-reduced-motion:reduce){.scroll-gentle{opacity:1!important;transform:none!important;transition:none!important}}
+@media print{.scroll-gentle{opacity:1!important;transform:none!important}}
+body .entry-content .centered-requested-title{text-align:center;width:100%;max-width:none;margin-left:auto;margin-right:auto}
+/* Center the agenda's invitation copy and call to action. */
+body.agenda-page #organiser-rencontre{text-align:center}
+body.agenda-page #organiser-rencontre>p{margin-left:auto;margin-right:auto}
+body.agenda-page #organiser-rencontre>.button{margin-left:auto;margin-right:auto}

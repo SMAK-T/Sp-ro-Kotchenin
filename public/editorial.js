@@ -9,7 +9,6 @@
     let current = 0;
     let paused = reducedMotion.matches;
     let timer;
-    let hovered = false;
     const show = (index) => {
       current = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => {
@@ -19,27 +18,24 @@
       });
       hero.querySelector('.slide-title').textContent = labels[current].title;
       hero.querySelector('.slide-description').textContent = labels[current].description;
-      hero.querySelector('.slide-number').textContent = `${String(current + 1).padStart(2, '0')} / 05`;
+
       const img = slides[(current + 1) % slides.length].querySelector('img');
       img.loading = 'eager';
     };
     const start = () => {
       clearInterval(timer);
-      if (!paused && !hovered && !document.hidden && !hero.matches(':focus-within')) timer = setInterval(() => show(current + 1), 6500);
-      pause.textContent = paused ? '▷' : 'Ⅱ';
-      pause.setAttribute('aria-label', paused ? 'Lancer le diaporama' : 'Mettre le diaporama en pause');
+      if (!paused && !document.hidden) timer = setInterval(() => show(current + 1), 5000);
+      if (pause) pause.textContent = paused ? '▷' : 'Ⅱ';
+      pause?.setAttribute('aria-label', paused ? 'Lancer le diaporama' : 'Mettre le diaporama en pause');
     };
     dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
-    pause.addEventListener('click', () => { paused = !paused; start(); });
-    hero.addEventListener('mouseenter', () => { hovered = true; start(); });
-    hero.addEventListener('mouseleave', () => { hovered = false; start(); });
-    hero.addEventListener('focusin', () => clearInterval(timer));
-    hero.addEventListener('focusout', () => requestAnimationFrame(start));
+    pause?.addEventListener('click', () => { paused = !paused; start(); });
     hero.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
         event.preventDefault();
         show(current + (event.key === 'ArrowRight' ? 1 : -1));
         dots[current].focus();
+        start();
       }
     });
     document.addEventListener('visibilitychange', start);
@@ -72,8 +68,7 @@
 
   const calendar = document.querySelector('.workshop-calendar');
   if (calendar) {
-    // Only confirmed events belong here. Empty until the association supplies its dates.
-    const events = [];
+    const events = window.neotisseWorkshops || [];
     const today = new Date();
     let shown = new Date(today.getFullYear(), today.getMonth(), 1);
     let selected = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -84,17 +79,32 @@
       const list = calendar.querySelector('.day-events');
       list.replaceChildren();
       const matching = events.filter((event) => event.date === key(selected));
-      if (!matching.length) {
+      const upcoming = events.filter(event => event.date >= key(today));
+      const displayed = matching.length ? matching : upcoming;
+      if (!displayed.length) {
         const empty = document.createElement('div');
         empty.className = 'day-empty';
         empty.innerHTML = '<span aria-hidden="true">✳</span><div><h4>Un rendez-vous à venir.</h4><p>Aucune rencontre annoncée pour cette date. Les prochains ateliers seront présentés ici dès leur confirmation.</p><a class="text-link" href="contact.html?motif=atelier#ecrivez-nous">Organiser une rencontre</a></div>';
         list.append(empty);
       }
-      matching.forEach((event) => {
-        const item = document.createElement('details'); item.className = 'event-list-card';
-        const summary = document.createElement('summary'); summary.textContent = `${event.title} · ${event.start}`;
-        const description = document.createElement('p'); description.textContent = `${event.place} — ${event.description}`;
-        item.append(summary, description); list.append(item);
+      if (!matching.length && upcoming.length) {
+        calendar.querySelector('.selected-date').textContent = 'Les prochaines prestations de Néotisse';
+        const info = document.createElement('p'); info.className = 'calendar-list-intro';
+        info.textContent = 'Aucun atelier ce jour-là. Découvrez les prochains rendez-vous ci-dessous et sélectionnez une date marquée dans le calendrier.';
+        list.append(info);
+      }
+      displayed.forEach((event) => {
+        const item = document.createElement('article'); item.className = 'calendar-photo-card';
+        const image = document.createElement('img'); image.src = `assets/media/${event.image}`; image.alt = event.title; image.loading = 'lazy';
+        const copy = document.createElement('div');
+        const date = document.createElement('time'); date.dateTime = event.date; date.textContent = new Date(event.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+        const title = document.createElement('h4'); title.textContent = event.title;
+        const hours = document.createElement('p'); hours.textContent = `${event.start} · ${event.place}`;
+        const badge = document.createElement('p'); badge.className = 'calendar-demo'; badge.textContent = 'Atelier et horaires d’exemple · sans inscription';
+        const detail = document.createElement('details');
+        const summary = document.createElement('summary'); summary.textContent = 'Voir les détails';
+        const description = document.createElement('p'); description.textContent = event.description;
+        detail.append(summary,description); copy.append(date,title,hours,badge,detail); item.append(image,copy); list.append(item);
       });
     };
     const render = (focusDay) => {
@@ -111,6 +121,11 @@
         const button = document.createElement('button'); button.type = 'button'; button.className = 'calendar-date'; button.textContent = day;
         button.setAttribute('aria-label', date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
         button.setAttribute('aria-pressed', String(key(date) === key(selected)));
+        const count = events.filter(event => event.date === key(date)).length;
+        if (count) {
+          button.classList.add('has-event');
+          button.setAttribute('aria-label', button.getAttribute('aria-label') + `, ${count} atelier d’exemple`);
+        }
         if (key(date) === key(today)) button.setAttribute('aria-current', 'date');
         button.addEventListener('click', () => { selected = date; render(day); });
         grid.append(button);
@@ -130,4 +145,32 @@
     }));
     render();
   }
+})();
+
+// Gentle section reveals; preserve native scrolling and reduced-motion settings.
+(() => {
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  if (preference.matches || !('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('main > section:not(.hero-slideshow):not(.curved-hero):not(.client-intro)');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('scroll-settled');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+  targets.forEach(target => {
+    if (target.getBoundingClientRect().top < innerHeight - 24) return;
+    target.classList.add('scroll-gentle');
+    observer.observe(target);
+  });
+  const revealAll = () => {
+    observer.disconnect();
+    targets.forEach(target => target.classList.add('scroll-settled'));
+  };
+  document.addEventListener('focusin', event => {
+    event.target.closest?.('.scroll-gentle')?.classList.add('scroll-settled');
+  });
+  preference.addEventListener('change', event => { if (event.matches) revealAll(); });
+  addEventListener('beforeprint', revealAll);
 })();
