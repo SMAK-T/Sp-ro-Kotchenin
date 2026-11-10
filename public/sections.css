@@ -149,3 +149,14 @@ body .figma-workshops .workshop-preview>img{width:100%;height:auto;aspect-ratio:
 
 /* Separate rounded frame from the full, uncropped photograph. */
 body .workshop-image-frame{width:100%;aspect-ratio:372/345;border-radius:26px;overflow:hidden;background:#dededb;display:flex;align-items:center;justify-content:center}body .workshop-image-frame>img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;border-radius:0;background:transparent}@media(max-width:700px){body .workshop-image-frame{border-radius:23px}}
+
+/* Team profiles: supplied biographies and original photographs. */
+body .team-profiles img{height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:12px}body .team-profiles h3{display:inline-block;font-size:29px;border-bottom:1px solid var(--rust);padding-bottom:8px;margin-bottom:14px}body .team-profiles .team-qualification{font-size:17px;line-height:1.5;margin-bottom:25px}body .team-profiles article>p:last-child{font-size:15px;line-height:1.8}
+/* Center the specific gallery captions and editorial blocks requested. */
+body.actions-page .entry-content :is(.media-story-grid,.media-experiment-grid) figcaption{text-align:center}
+body.actions-page .entry-content :is(.media-story-grid,.media-experiment-grid) figcaption :is(strong,span){text-align:center;margin-left:auto;margin-right:auto}
+body.actions-page #experimentations>p{max-width:1000px;text-align:center;margin-left:auto;margin-right:auto}
+body.a-propos-page #temoignages>p,body.a-propos-page #valeurs>p{text-align:center;margin-left:auto;margin-right:auto;max-width:1000px}
+body.a-propos-page #valeurs>ul{list-style:none;padding-left:0;max-width:1000px;margin:0 auto 28px;text-align:center}
+body.a-propos-page #valeurs>ul li{margin-bottom:10px}
+body.contact-page #orienter-demande>h2{width:100%;max-width:none;text-align:center;margin-left:auto;margin-right:auto}

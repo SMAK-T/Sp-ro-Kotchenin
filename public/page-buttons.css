@@ -98,7 +98,7 @@ body:not(.home) .entry-content [id]{scroll-margin-top:125px}
 /* Calm motion: subtle, one-time reveals without modifying scroll speed. */
 @media(prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
-  .scroll-gentle{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform 1s cubic-bezier(.2,.65,.3,1)}
+  .scroll-gentle{opacity:.8;transform:translateY(6px);transition:opacity .65s ease,transform .75s cubic-bezier(.2,.65,.3,1)}
   .scroll-gentle.scroll-settled{opacity:1;transform:translateY(0)}
 }
 @media(prefers-reduced-motion:reduce){.scroll-gentle{opacity:1!important;transform:none!important;transition:none!important}}
@@ -108,3 +108,44 @@ body .entry-content .centered-requested-title{text-align:center;width:100%;max-w
 body.agenda-page #organiser-rencontre{text-align:center}
 body.agenda-page #organiser-rencontre>p{margin-left:auto;margin-right:auto}
 body.agenda-page #organiser-rencontre>.button{margin-left:auto;margin-right:auto}
+
+/* Public association contact details supplied by the client. */
+.neotisse-coordinates{display:flex;flex-direction:column;gap:18px;font-style:normal;margin:25px 0}.neotisse-coordinates>a,.neotisse-coordinates>.contact-location{display:flex;align-items:center;gap:14px;font-size:16px;line-height:1.5;overflow-wrap:anywhere}.contact-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:#e1d0d7}.footer-coordinates .neotisse-coordinates{gap:12px;margin:18px 0 22px}.footer-coordinates .neotisse-coordinates>a,.footer-coordinates .contact-location{font-size:12px}.footer-coordinates .contact-icon{width:32px;height:32px;flex-basis:32px}.footer-coordinates svg{width:17px;height:17px}
+/* Center content CTAs while preserving the main navbar and utility controls. */
+body .entry-content :is(a.button,button.button,a.text-link,a.home-text-link,.client-card a){display:table;width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:center;justify-self:center;align-self:center}
+body .entry-content .hero-actions{justify-content:center}
+body .entry-content .hero-actions .button{display:inline-flex;margin-left:0;margin-right:0}
+body #contact-form>.button,body #guestbook-form>.button{justify-self:center;margin-left:auto;margin-right:auto}
+body .calendar-today{display:block;width:fit-content;margin-left:auto;margin-right:auto}
+body .entry-content .service-chips a{text-align:center;justify-content:center}
+/* Keep the month visible alongside the scrolling event list on large screens. */
+@media(min-width:701px){
+  body.agenda-page .calendar-two-columns{align-items:start;overflow:visible}
+  body.agenda-page .calendar-two-columns>.neotisse-calendar{position:sticky;top:125px;align-self:start;max-height:calc(100dvh - 145px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+}
+@media(min-width:701px) and (max-width:900px){body.agenda-page .calendar-two-columns>.neotisse-calendar{top:110px;max-height:calc(100dvh - 130px)}}
+@media(max-width:700px){body.agenda-page .calendar-two-columns>.neotisse-calendar{position:static;max-height:none;overflow:visible}}
+/* Unified textile button treatment chosen by the client. */
+html body .site-nav a.nav-link,html body.home .site-header .site-nav>a.nav-link,html body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a,.calendar-controls button,.calendar-today,.partner-toolbar button,.workshop-controls button,.review-expand,.guestbook-compose>summary){position:relative;isolation:isolate;border:1px solid #a85f43;border-radius:6px;background:transparent;box-shadow:none;padding:12px 22px;min-height:46px;line-height:1.5;text-decoration:none;overflow:visible}
+html body .site-nav a.nav-link::before,html body.home .site-header .site-nav>a.nav-link::before,html body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a,.calendar-controls button,.calendar-today,.partner-toolbar button,.workshop-controls button,.review-expand,.guestbook-compose>summary)::before{content:'';position:absolute;inset:5px;width:auto;height:auto;top:5px;right:5px;bottom:5px;left:5px;border:1px dashed #a85f4366;border-radius:2px;background:none;mask:none;opacity:1;transform:none;pointer-events:none;z-index:0;transition:border-color .25s}
+html body .site-nav a.nav-link::after,html body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a,.calendar-controls button,.calendar-today,.partner-toolbar button,.workshop-controls button,.review-expand,.guestbook-compose>summary)::after{display:none}
+html body .site-nav a.nav-link:hover,html body.home .site-header .site-nav>a.nav-link:hover,html body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a,.calendar-controls button,.calendar-today,.partner-toolbar button,.workshop-controls button,.review-expand,.guestbook-compose>summary):hover{background:#a85f430c;box-shadow:none}
+html body .site-nav a.nav-link:is(:hover,:focus-visible)::before,html body .entry-content :is(.button,.text-link,.home-text-link,.client-card a,.service-chips a,.calendar-controls button,.calendar-today,.partner-toolbar button,.workshop-controls button,.review-expand,.guestbook-compose>summary):is(:hover,:focus-visible)::before{border-color:#a85f43cc;transform:none;opacity:1}
+html body .site-nav{gap:14px}
+html body .site-nav a.nav-link{font:400 16px/1.5 var(--serif);padding:11px 18px}
+html body .site-nav a.nav-link[aria-current=page]{background:#a85f4310}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link,html body.home .hero-actions .button{border-color:#f7f4ecb3}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link::before,html body.home .hero-actions .button::before{border-color:#f7f4ec88}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link:hover,html body.home .hero-actions .button:hover{background:#ffffff18}
+html body .entry-content :is(.calendar-controls button,.partner-toolbar button,.workshop-controls button){width:46px;min-width:46px;height:46px;padding:9px;font-size:21px}
+html body .entry-content .review-expand{font-size:12px;padding:10px 16px;min-height:40px;margin-top:18px}
+html body .entry-content .service-chips{gap:14px;border:0}
+html body .entry-content .service-chips a{justify-content:center}
+@media(min-width:901px) and (max-width:1150px){html body .site-nav{gap:8px}html body .site-nav a.nav-link{padding:10px 12px;font-size:14px}}
+@media(max-width:900px){html body .site-nav.open{gap:12px}html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link{border-color:#a85f43}html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link::before{border-color:#a85f4366}}
+/* Only primary calls to action are centered; utility controls keep their layout. */
+html body .entry-content :is(a.button,button.button,a.text-link,a.home-text-link,.client-card a){margin-left:auto;margin-right:auto;text-align:center;justify-self:center;align-self:center}
+html body .entry-content :is(a.button,a.text-link,a.home-text-link,.client-card a){display:table;width:fit-content;max-width:100%}
+html body .entry-content .hero-actions{justify-content:center}
+html body .entry-content .hero-actions .button{display:inline-flex;margin:0}
+html body #contact-form>.button,html body #guestbook-form>.button{display:table;justify-self:center;margin-left:auto;margin-right:auto}

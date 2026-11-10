@@ -1,0 +1,38 @@
+/* Approved option 03: cream, sage and terracotta editorial sections. */
+:root{--band-cream:#f7f4ec;--band-sage:#e4e9de;--band-terracotta:#a85f43}
+#main>.color-band{display:flow-root;background:var(--band-cream)}
+#main>.color-band--sage{background:var(--band-sage)}
+#main>.color-band--terracotta{background:var(--band-terracotta)}
+html body #main>.color-band>section{background:transparent;border-top:0}
+html body #main>.color-band--terracotta,html body #main>.color-band--terracotta *{color:#f7f4ec!important;text-shadow:none}
+html body #main>.color-band--cream,html body #main>.color-band--cream *,html body #main>.color-band--sage,html body #main>.color-band--sage *{color:#000!important}
+/* White photographic copy is preserved inside the introductory image. */
+html body.home #main>.color-band .figma-home-feature>div,html body.home #main>.color-band .figma-home-feature>div *{color:#fff!important}
+html body #main>.color-band--terracotta .neotisse-cta{border-color:#f7f4ecb3;background:transparent}
+html body #main>.color-band--terracotta .neotisse-cta::before{border-color:#f7f4ec88}
+html body #main>.color-band--terracotta .neotisse-cta:hover{background:#ffffff12}
+html body #main>.color-band--terracotta .tree-grid article{border-top-color:#f7f4ec55}
+html body #main>.color-band--terracotta .client-card{background:transparent}
+html body #main>.color-band--terracotta :is(.review-card,.guestbook-compose[open]>form){background:#f7f4ec}
+html body #main>.color-band--terracotta :is(.review-card,.guestbook-compose[open]>form),html body #main>.color-band--terracotta :is(.review-card,.guestbook-compose[open]>form) *{color:#000!important}
+html body #main>.color-band--terracotta .review-stars span{color:#b7740b!important}
+html body #main>.color-band--terracotta .guestbook-compose>summary{background:#f7f4ec;border-color:#f7f4ec;color:#000!important}
+html body #main>.color-band--terracotta .guestbook-compose>summary::before{border-color:#a85f4380}
+html body #main>.color-band--terracotta #guestbook-form .neotisse-cta{border-color:#a85f43}
+html body #main>.color-band--terracotta #guestbook-form .neotisse-cta::before{border-color:#a85f4366}
+/* Preserve existing layouts, with breathing room at section boundaries. */
+body.home #main>.color-band>.figma-home-cards{padding-top:55px;padding-bottom:55px;margin-top:0;margin-bottom:0}
+body.home #main>.color-band>.figma-home-cards .client-card p{margin-bottom:20px}
+body.home #main>.color-band>.figma-home-feature{margin-bottom:60px}
+html body #main>.color-band>.client-section,html body #main>.color-band>.home-section{padding-top:65px;padding-bottom:65px}
+html body.actions-page #main>.color-band>.figma-action-row{padding-top:45px;padding-bottom:45px}
+html body #main>.color-band--sage .workshop-image-frame{background:#f7f4ec}
+html body #main>.color-band--sage .calendar-photo-card{background:#f7f4ec;border-color:#35463825}
+html body #main>.color-band--sage .calendar-grid{background:transparent}
+html body #main>.color-band--sage .calendar-date[aria-pressed=true]{background:#d6b69e}
+html body #main>.color-band--sage .inquiry-layout aside{padding-top:10px}
+html body #main>.color-band--sage .inquiry-layout #ecrivez-nous{padding:32px;background:#f7f4ec}
+html body #main>.color-band--terracotta #orienter-demande{max-width:1300px}
+html body #main>.color-band--terracotta #orienter-demande a{text-decoration:underline;text-underline-offset:4px}
+html body #main>.color-band--terracotta .mcgee-philosophy-columns .tree-grid article{border-top-color:#f7f4ec55}
+@media(max-width:700px){html body #main>.color-band>.client-section,html body #main>.color-band>.home-section{padding-top:48px;padding-bottom:48px}body.home #main>.color-band>.figma-home-cards{padding-block:40px}html body #main>.color-band--sage .inquiry-layout #ecrivez-nous{padding:25px 20px}}

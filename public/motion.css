@@ -1,0 +1,41 @@
+/* Approved motion, kept subtle and disabled for reduced-motion preference. */
+.thread-title-copy{position:relative;display:inline-block;max-width:100%;padding-bottom:15px}
+.thread-title-copy>.textile-underline{position:absolute;left:0;bottom:-2px;width:100%;height:20px;overflow:visible;pointer-events:none;clip-path:inset(0 100% 0 0);color:#a85f43}
+.color-band--terracotta .textile-underline{color:#f0cfa6}
+.textile-underline path{fill:none;stroke-linecap:round}
+@media(prefers-reduced-motion:no-preference){
+ .thread-title-copy.thread-visible>.textile-underline{animation:thread-unroll 1.25s cubic-bezier(.25,.65,.3,1) forwards}
+ #main .neotisse-cta.neotisse-cta::before,html body .site-nav a.nav-link::before{clip-path:inset(0 0 0 0)}
+ #main .neotisse-cta.neotisse-cta:is(:hover,:focus-visible)::before,html body .site-nav a.nav-link:is(:hover,:focus-visible)::before{animation:stitch-quick .28s ease-out both}
+ #main .motion-photo{transition:transform .8s ease,filter .8s ease}
+ #main .motion-photo:hover{transform:scale(1.018);filter:brightness(1.025)}
+ .motion-card{opacity:.94;translate:0 7px;transition:opacity .5s ease,translate .6s cubic-bezier(.2,.65,.3,1);transition-delay:var(--motion-delay,0ms)}
+ .motion-card.motion-arrived{opacity:1;translate:0 0}
+ body .partner-gallery article{transition:transform .35s ease,translate .45s ease}
+ body .partner-gallery article:hover{translate:0 -4px}
+ body .hero-slide{transition:opacity 1.6s ease}
+ body .hero-slide img{transition:transform 6s linear}
+ .scroll-gentle{opacity:.94;transform:translateY(4px);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.65,.3,1)}
+ .scroll-gentle.scroll-settled{opacity:1;transform:translateY(0)}
+}
+@keyframes thread-unroll{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes stitch-quick{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.thread-title-copy>.textile-underline{clip-path:none}.motion-card{opacity:1;translate:none}#main .motion-photo:hover{transform:none}.scroll-gentle{opacity:1!important;transform:none!important}}
+@media print{.textile-underline{display:none}.motion-card,.scroll-gentle{opacity:1!important;translate:none!important;transform:none!important}}
+/* More expressive spun thread: draw the strands, reveal fuzz, settle gently. */
+@media(prefers-reduced-motion:no-preference){
+ .thread-title-copy.thread-visible>.textile-underline{animation:thread-pull 2.1s cubic-bezier(.2,.6,.25,1) forwards}
+ .thread-title-copy.thread-visible .thread-strand{stroke-dasharray:var(--thread-length);animation:thread-draw 1.65s ease-out both;animation-delay:var(--strand-delay,0ms)}
+ .thread-title-copy.thread-visible .thread-fibre{animation:thread-fuzz .8s ease-out both;animation-delay:1s}
+}
+@keyframes thread-draw{from{stroke-dashoffset:var(--thread-length)}to{stroke-dashoffset:0}}
+@keyframes thread-fuzz{from{opacity:0}to{opacity:.55}}
+@keyframes thread-pull{0%{clip-path:inset(0 100% 0 0);transform:translateY(2px)}65%{clip-path:inset(0 5% 0 0);transform:translateY(-2px)}85%{clip-path:inset(0 0 0 0);transform:translateY(1px)}100%{clip-path:inset(0 0 0 0);transform:translateY(0)}}
+
+/* Make the spun fibres readable at actual page scale. */
+.thread-title-copy{padding-bottom:24px}
+.thread-title-copy>.textile-underline{height:30px;bottom:-3px}
+html body #main .color-band--cream .textile-underline,html body #main .color-band--cream .textile-underline *,html body #main .color-band--sage .textile-underline,html body #main .color-band--sage .textile-underline *{color:#9b4e30!important}
+html body #main .color-band--terracotta .textile-underline,html body #main .color-band--terracotta .textile-underline *{color:#f3dbb9!important}
+html body #main .figma-home-feature .textile-underline,html body #main .figma-home-feature .textile-underline *{color:#f3dbb9!important}
+@media(max-width:620px){.thread-title-copy>.textile-underline{height:25px}.thread-title-copy{padding-bottom:21px}}

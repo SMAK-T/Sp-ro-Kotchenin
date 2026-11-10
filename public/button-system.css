@@ -1,0 +1,48 @@
+/* One consistent frame for primary CTAs; overrides legacy page variations. */
+#main .neotisse-cta.neotisse-cta{
+  position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;
+  box-sizing:border-box;width:fit-content;max-width:100%;min-width:0;min-height:48px;
+  margin-left:auto;margin-right:auto;padding:14px 27px;
+  border:1px solid #a85f43;border-radius:6px;background:transparent;box-shadow:none;
+  font:400 17px/1.5 var(--serif);letter-spacing:0;text-transform:none;
+  text-align:center;text-decoration:none;white-space:normal;overflow-wrap:anywhere;
+  overflow:visible;justify-self:center;align-self:center;gap:12px;
+}
+#main .neotisse-cta.neotisse-cta::before{
+  content:'';position:absolute;inset:5px;width:auto;height:auto;
+  border:1px dashed #a85f4366;border-radius:2px;background:none;mask:none;
+  opacity:1;transform:none;pointer-events:none;z-index:0;
+}
+#main .neotisse-cta.neotisse-cta::after{display:none}
+#main .neotisse-cta.neotisse-cta:hover{background:#a85f430c;box-shadow:none;filter:none}
+#main .neotisse-cta.neotisse-cta:is(:hover,:focus-visible)::before{transform:none;opacity:1;border-color:#a85f43cc}
+#main .neotisse-cta.neotisse-cta:focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+body.home #main .hero-slideshow .neotisse-cta.neotisse-cta,
+body.home #main .figma-home-feature .neotisse-cta.neotisse-cta{border-color:#f7f4ecbb;color:white!important;background:#15231918}
+body.home #main .hero-slideshow .neotisse-cta.neotisse-cta::before,
+body.home #main .figma-home-feature .neotisse-cta.neotisse-cta::before{border-color:#f7f4ec88}
+body.home #main .hero-slideshow .neotisse-cta.neotisse-cta:hover,
+body.home #main .figma-home-feature .neotisse-cta.neotisse-cta:hover{background:#ffffff18}
+#main .hero-actions .neotisse-cta.neotisse-cta{margin-left:0;margin-right:0}
+@media(max-width:520px){#main .neotisse-cta.neotisse-cta{font-size:16px;padding:13px 23px}}
+/* Keep the service list and review expanders as simple text links. */
+#main .service-chips a,#main .review-expand{border:0;border-radius:0;background:transparent;box-shadow:none;min-height:0}
+#main .service-chips a::before,#main .service-chips a::after,#main .review-expand::before,#main .review-expand::after{display:none;content:none}
+#main .service-chips a:hover,#main .review-expand:hover{background:transparent;box-shadow:none;text-decoration:underline;text-underline-offset:4px}
+#main .review-expand{padding:5px 8px}
+/* Contact heading must be centered independently of optional section styles. */
+body.contact-page #main #orienter-demande>h2{display:block;width:100%;max-width:none;text-align:center;margin-left:auto;margin-right:auto}
+body.contact-page #main #orienter-demande>p{margin-left:auto;margin-right:auto;text-align:center}
+/* Brown navbar buttons on solid headers; preserve the homepage hero state. */
+html body:not(.home) .site-header .site-nav>a.nav-link,
+html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link{background:#a85f43;border-color:#a85f43;color:#fff!important}
+html body:not(.home) .site-header .site-nav>a.nav-link *,
+html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link *{color:#fff!important}
+html body:not(.home) .site-header .site-nav>a.nav-link::before,
+html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link::before{border-color:#f7f4ec99}
+html body:not(.home) .site-header .site-nav>a.nav-link:hover,
+html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover{background:#8b4933;border-color:#8b4933}
+/* Keep Contact legible on the transparent homepage navigation. */
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link.nav-5,
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link.nav-5 *{color:#fff!important}
+@media(max-width:900px){html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link.nav-5,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link.nav-5 *{color:#354638!important}}

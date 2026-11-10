@@ -151,7 +151,7 @@
 (() => {
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   if (preference.matches || !('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll('main > section:not(.hero-slideshow):not(.curved-hero):not(.client-intro)');
+  const targets = document.querySelectorAll('main > section:not(.hero-slideshow):not(.curved-hero):not(.client-intro), main > .color-band > section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
