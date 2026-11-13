@@ -275,3 +275,29 @@ html body.services-page #main #questions-ateliers>.neotisse-detail{width:100%;ma
 html body.services-page #main #questions-ateliers>.neotisse-detail>summary{white-space:normal;max-width:100%;line-height:1.45}
 html body.services-page #main #questions-ateliers>.neotisse-detail :is(p,ul,ol){max-width:100%;box-sizing:border-box;line-height:1.8}
 html body.services-page #main #questions-ateliers>.neotisse-detail :is(ul,ol){padding-left:24px}
+
+/* Fleches des rendez-vous : meme contraste que les partenaires. */
+html body #main .workshop-controls button {
+ display:inline-flex;align-items:center;justify-content:center;
+ width:54px;min-width:54px;height:50px;padding:0;
+ background:#a85f43!important;color:#f7f4ec!important;
+ border:1px solid #a85f43;border-radius:7px;
+ font-size:29px;font-weight:600;line-height:1;
+ box-shadow:0 3px 9px #35463820;
+ transition:background .2s,transform .2s,box-shadow .2s;
+}
+html body #main .workshop-controls button::before {border-color:#f7f4ec88;}
+html body #main .workshop-controls button:is(:hover,:focus-visible){background:#354638!important;color:#f7f4ec!important;transform:translateY(-2px);box-shadow:0 5px 12px #35463830;}
+html body #main .workshop-controls button:focus-visible{outline:3px solid #a85f43;outline-offset:4px;}
+
+/* Fleches du calendrier et des ateliers, regle prioritaire. */
+html body #main :is(.calendar-controls,.workshop-controls) > button {
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ width:54px!important;min-width:54px!important;height:50px!important;padding:0!important;
+ background:#a85f43!important;color:#f7f4ec!important;border:1px solid #a85f43!important;
+ border-radius:7px!important;font-size:29px!important;font-weight:600!important;line-height:1!important;
+ box-shadow:0 3px 9px #35463820!important;
+}
+html body #main :is(.calendar-controls,.workshop-controls)>button::before{border-color:#f7f4ec88!important;}
+html body #main :is(.calendar-controls,.workshop-controls)>button:is(:hover,:focus-visible){background:#354638!important;color:#f7f4ec!important;}
+html body #main .workshops-heading>.workshop-controls{grid-column:1/-1;justify-self:center;justify-content:center;}

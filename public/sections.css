@@ -6,7 +6,7 @@ body.home .figma-home-feature h2{font-size:clamp(34px,4vw,60px);margin-bottom:15
 body.home .figma-home-feature p{max-width:650px;margin:0 auto 16px}
 body.home .figma-home-cards{width:calc(100% - 40px);max-width:1540px;margin:0 auto 60px}
 body.home .figma-home-cards .client-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-body.home .figma-home-cards .client-card>img{height:auto;aspect-ratio:464/540;object-fit:cover;border-radius:0}
+body.home .figma-home-cards .client-card>img{height:auto;aspect-ratio:464/490;object-fit:cover;border-radius:0}
 body.home .figma-home-cards .client-card>div{padding:24px 16px}
 body.home .figma-home-cards .client-card h3{font-size:28px;margin-bottom:16px}
 body.home .entry-content .figma-home-copy{padding-block:30px 60px}
@@ -293,3 +293,31 @@ body.actions-page .entry-content .media-story-grid figure:last-child strong{font
 /* Bring gallery captions closer to their descriptions. */
 body.actions-page .entry-content .media-experiment-grid strong{min-height:0;margin-bottom:0}
 body.actions-page .entry-content .media-experiment-grid figcaption span{margin-top:10px}
+
+/* Apercu des prestations : etiquettes textiles compactes. */
+html body.home #main #services-apercu .service-chips {
+ display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;
+}
+html body.home #main #services-apercu .service-chips>a {
+ position:relative;flex:0 1 auto!important;width:auto!important;max-width:100%;
+ min-height:58px!important;padding:17px 25px!important;
+ border-radius:5px!important;border:1px solid #f7f4ec99!important;
+ background:#f7f4ec!important;color:#354638!important;
+ font-size:21px!important;line-height:1.3!important;
+ text-align:center;box-sizing:border-box;box-shadow:none!important;
+ transition:background .25s,transform .25s;
+}
+html body.home #main #services-apercu .service-chips>a::before {
+ content:'';display:block!important;position:absolute;inset:5px;
+ border:1px dashed #a85f4355;border-radius:2px;pointer-events:none;
+}
+html body.home #main #services-apercu .service-chips>a:hover {
+ background:#e7dccb!important;translate:0 -2px;box-shadow:none!important;
+}
+@media(max-width:700px){
+ html body.home #main #services-apercu .service-chips{gap:10px;}
+ html body.home #main #services-apercu .service-chips>a,
+ html body.home #main #services-apercu .service-chips>a:last-child {
+  flex:1 1 220px!important;min-height:54px!important;padding:15px 20px!important;font-size:20px!important;
+ }
+}

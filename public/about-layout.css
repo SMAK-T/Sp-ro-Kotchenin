@@ -1,4 +1,49 @@
 /* À propos : panorama puis deux colonnes éditoriales, hero inchangé. */
+body.a-propos-page .about-reference-column .about-photo-lead { margin-top: 0; border-radius: 0; }
+body.a-propos-page .about-reference-column .about-photo-lead img { aspect-ratio: 1.6; }
+body.a-propos-page .about-photo-break,
+body.a-propos-page .about-panorama {
+  overflow: hidden;
+  isolation: isolate;
+  transition: box-shadow .45s ease;
+}
+body.a-propos-page .about-photo-break img,
+body.a-propos-page .about-panorama img {
+  transform: scale(1);
+  transition: transform .9s cubic-bezier(.16,1,.3,1), filter .65s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  body.a-propos-page .about-photo-break:hover { box-shadow: 0 16px 36px #17251b45; }
+  body.a-propos-page .about-photo-break:hover img,
+  body.a-propos-page .about-panorama:hover img { transform: translate3d(var(--photo-x,0px),var(--photo-y,0px),0) scale(1.12); filter: saturate(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.a-propos-page .about-photo-break,
+  body.a-propos-page .about-panorama,
+  body.a-propos-page .about-photo-break img,
+  body.a-propos-page .about-panorama img { transition: none; transform: none !important; }
+}
+html body.a-propos-page #main .about-reference-column .neotisse-cta.neotisse-cta {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 24px 0 8px;
+  align-self: flex-start;
+  justify-self: start;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+html body.a-propos-page #main .about-reference-column .about-audience-columns article > p:last-of-type {
+  margin-bottom: 0;
+}
+html body.a-propos-page #main #partenaires > .neotisse-cta.neotisse-cta,
+html body.a-propos-page #main .editorial-invitation > .neotisse-cta.neotisse-cta {
+  margin-top: 28px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 body.a-propos-page .about-reference-column .about-photo-break {
   display: block;
   width: 100%;
@@ -100,4 +145,19 @@ body.a-propos-page #publics-neotisse .about-audience-columns { gap: clamp(32px, 
   body.a-propos-page .about-alternating-row { grid-template-columns: 1fr; gap: 30px; }
   body.a-propos-page .about-alternating-row > img { height: 360px; order: 0; }
   body.a-propos-page .about-alternating-copy h2 { font-size: 34px; }
+}
+
+/* Une taille commune pour les titres de section après les portraits. */
+html body.a-propos-page #main .about-reference-brands h2,
+html body.a-propos-page #main #partenaires > h2 {
+ font-size: clamp(23px, 1.83vw, 29px);
+ line-height: 1.3;
+ letter-spacing: -.025em;
+}
+@media (min-width: 761px) {
+ html body.a-propos-page #main .about-reference-column #approche > h2 { white-space: nowrap; }
+}
+@media (max-width: 760px) {
+ html body.a-propos-page #main .about-reference-brands h2,
+ html body.a-propos-page #main #partenaires > h2 { font-size: 27px; }
 }
