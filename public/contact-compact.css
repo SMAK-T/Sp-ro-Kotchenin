@@ -1,0 +1,31 @@
+/* Compact layout without removing any required contact information. */
+html body.contact-page #contact-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+#contact-form .contact-field{min-width:0;display:flex;flex-direction:column;gap:6px}
+#contact-form .contact-field--motif,#contact-form .contact-field--message,#contact-form>.form-consent,#contact-form>#form-status{grid-column:1/-1}
+html body.contact-page #contact-form .contact-field>label{margin:0;font-size:14px;line-height:1.4}
+html body.contact-page #contact-form .contact-field :is(input,select,textarea){box-sizing:border-box;width:100%;margin:0;border:1px solid #35463855;background:#fdfbf6;border-radius:5px;padding:9px 12px;font:400 16px/1.5 var(--sans);color:#17251b!important;min-height:44px}
+html body.contact-page #contact-form .contact-field textarea{min-height:112px;resize:vertical}
+html body.contact-page #contact-form>.form-consent{margin:2px 0;gap:9px;font-size:13px;line-height:1.5}
+html body.contact-page #contact-form>.form-consent input{width:17px;height:17px;min-width:17px;margin-top:2px}
+html body.contact-page #contact-form>button{grid-column:1/-1;justify-self:center;margin-top:4px}
+#contact-form #form-status:empty{display:none}
+html body.contact-page .inquiry-intro{margin-bottom:20px}
+@media(max-width:600px){html body.contact-page #contact-form{grid-template-columns:1fr;gap:14px}#contact-form .contact-field{grid-column:1/-1}}
+
+/* Textile-inspired frame and softly outlined fields. */
+html body.contact-page #contact-form{position:relative;isolation:isolate;padding:30px;border:1px solid #a85f4380;border-radius:18px;background:#f7f4ec;box-shadow:0 8px 28px #3546380a}
+html body.contact-page #contact-form::before{content:"";position:absolute;inset:7px;border:1px dashed #a85f434d;border-radius:12px;pointer-events:none;z-index:-1}
+html body.contact-page #contact-form .contact-field>label{color:#354638!important;font-weight:500}
+html body.contact-page #contact-form .contact-field :is(input,select,textarea){border:1px solid #a85f434d;border-radius:9px;background:#fdfbf6;box-shadow:inset 0 1px 3px #35463804;transition:border-color .2s,box-shadow .2s}
+html body.contact-page #contact-form .contact-field :is(input,select,textarea):hover{border-color:#a85f4399}
+html body.contact-page #contact-form .contact-field :is(input,select,textarea):focus-visible{outline:2px solid #4b6043;outline-offset:3px;border-color:#4b6043;box-shadow:none}
+html body.contact-page #contact-form>.form-consent,html body.contact-page #contact-form>.form-consent *{color:#354638!important}
+html body.contact-page #contact-form>.form-consent input{accent-color:#4b6043}
+html body.contact-page #contact-form>button{color:#354638!important;border-color:#a85f43;background:transparent}
+html body.contact-page #contact-form>button::before{border-color:#a85f4380}
+html body.contact-page #contact-form>button:hover{background:#a85f4310}
+@media(max-width:600px){html body.contact-page #contact-form{padding:23px 19px;border-radius:15px}html body.contact-page #contact-form::before{inset:6px;border-radius:10px}}
+
+/* Match the outer cream panel to the rounded textile form. */
+html body.contact-page #main .inquiry-layout #ecrivez-nous{box-sizing:border-box;min-width:0;border:1px solid #a85f4360;border-radius:26px;background:#f7f4ec;padding:30px;box-shadow:0 10px 30px #17251b0a}
+@media(max-width:600px){html body.contact-page #main .inquiry-layout #ecrivez-nous{padding:22px 14px;border-radius:20px}}

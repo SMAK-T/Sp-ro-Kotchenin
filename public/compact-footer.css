@@ -1,5 +1,5 @@
 /* Approved green footer: compact three-column layout with clear contrast. */
-html body #site-footer.compact-green-footer{background:#354638;background-image:none;min-height:0;height:auto;padding:38px max(28px,5vw) 20px;color:#f7f4ec!important}
+html body #site-footer.compact-green-footer{background:#4B6043;background-image:none;min-height:0;height:auto;padding:38px max(28px,5vw) 20px;color:#f7f4ec!important}
 html body #site-footer.compact-green-footer *{color:#f7f4ec!important;text-shadow:none}
 #site-footer .compact-footer-grid{display:grid;grid-template-columns:1.1fr 1fr 1.25fr;max-width:1400px;margin:auto;gap:40px;align-items:start}
 #site-footer .footer-wordmark{font:400 clamp(25px,2.7vw,38px)/1.2 Cinzel,Georgia,serif;letter-spacing:.06em;display:inline-block}
@@ -19,3 +19,8 @@ html body #site-footer.compact-green-footer *{color:#f7f4ec!important;text-shado
 #site-footer a:focus-visible{outline:2px solid #f7f4ec;outline-offset:5px}
 @media(max-width:900px){#site-footer .compact-footer-grid{gap:25px;grid-template-columns:1fr 1fr}#site-footer .compact-footer-contact{grid-column:1/-1;border-left:0;border-top:1px solid #f7f4ec40;padding:22px 0 0}#site-footer .compact-footer-contact address{flex-direction:row;flex-wrap:wrap;gap:12px 25px}}
 @media(max-width:520px){html body #site-footer.compact-green-footer{padding:30px 24px 18px}#site-footer .compact-footer-grid{grid-template-columns:1fr;gap:25px}#site-footer .compact-footer-explore{border-left:0;border-top:1px solid #f7f4ec40;padding:22px 0 0}#site-footer .compact-footer-contact{grid-column:auto}#site-footer .compact-footer-contact address{flex-direction:column;gap:9px}#site-footer .compact-footer-bottom{margin-top:24px;font-size:10px}#site-footer h2{font-size:23px}}
+
+/* Finish every page at the footer; prevent the pale overscroll strip. */
+html{background:#4B6043;overscroll-behavior-y:none}
+body{overscroll-behavior-y:none;padding-bottom:0;margin-bottom:0}
+html body #site-footer.compact-green-footer{width:100%;max-width:none;margin:0;overflow:clip}

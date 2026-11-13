@@ -1,0 +1,2 @@
+const path=require('node:path');process.loadEnvFile(path.resolve(__dirname,'../.env.local'));const sanity=require('../lib/sanity.cjs');
+(async()=>{await sanity.mutate([{patch:{id:'homeSlide-web-4',set:{enabled:false}}}]);const c=await sanity.content();console.log('Images actives : '+c.slides.length);if(c.slides.some(s=>s.title==='Au rythme des fils.'))throw Error('Image encore active');})().catch(e=>{console.error(e.message);process.exitCode=1});

@@ -3,7 +3,7 @@
     {
       "date": "2026-11-21",
       "title": "Découvrir le filage au fuseau",
-      "image": "filage-fuseau.jpg",
+      "image": "evenement-filage-patti-black.jpg",
       "start": "14 h – 16 h",
       "place": "Lieu à confirmer",
       "description": "Observer les fibres et découvrir comment le geste transforme la matière en fil.",
@@ -14,7 +14,7 @@
     {
       "date": "2026-12-05",
       "title": "S’initier au tissage aux tablettes",
-      "image": "tissage-tablettes.jpg",
+      "image": "evenement-tissage-kaboompics.jpg",
       "start": "10 h – 12 h",
       "place": "Lieu à confirmer",
       "description": "Explorer le croisement des fils et les motifs d’un galon tissé aux tablettes.",
@@ -25,7 +25,7 @@
     {
       "date": "2026-12-19",
       "title": "Explorer la teinture naturelle",
-      "image": "teinture-vegetale.jpg",
+      "image": "atelier-teinture-indigo.jpg",
       "start": "14 h – 16 h",
       "place": "Lieu à confirmer",
       "description": "Découvrir les matières colorantes et les étapes de la teinture des fibres.",
@@ -125,7 +125,62 @@
       "published": true
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "review-demo-1",
+      "name": "Camille — exemple",
+      "message": "Un atelier accessible et passionnant. Manipuler les fibres après les explications permet de mieux comprendre les gestes et l’histoire du textile.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-06T12:00:00.000Z"
+    },
+    {
+      "id": "review-demo-2",
+      "name": "Alex — exemple",
+      "message": "Une belle découverte du filage au fuseau. Le rythme laisse le temps d’observer, de poser des questions et de faire ses premiers essais.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-05T12:00:00.000Z"
+    },
+    {
+      "id": "review-demo-3",
+      "name": "Lou — exemple",
+      "message": "Le tissage aux tablettes m’a donné un autre regard sur les motifs. Voir le galon se construire rend la technique beaucoup plus concrète.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-04T12:00:00.000Z"
+    },
+    {
+      "id": "review-demo-4",
+      "name": "Noa — exemple",
+      "message": "Une rencontre qui relie les objets anciens aux gestes d’aujourd’hui. Les échanges donnent envie de poursuivre la découverte.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-03T12:00:00.000Z"
+    },
+    {
+      "id": "review-demo-5",
+      "name": "Morgan — exemple",
+      "message": "La démonstration de teinture naturelle était très claire. J’ai aimé découvrir les plantes, les fibres et les différentes étapes de préparation.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-02T12:00:00.000Z"
+    },
+    {
+      "id": "review-demo-6",
+      "name": "Charlie — exemple",
+      "message": "Un moment convivial, adapté à des personnes qui découvrent le sujet. Les explications et la pratique se complètent très bien.",
+      "rating": 5,
+      "published": true,
+      "demo": true,
+      "createdAt": "2026-11-01T12:00:00.000Z"
+    }
+  ],
   "messages": [],
   "settings": {
     "email": "asso.neotisse@gmail.com",
@@ -133,5 +188,19 @@
     "city": "Montpellier, France",
     "instagram": "https://www.instagram.com/neotisse.asso/",
     "facebook": "https://www.facebook.com/profile.php?id=61558744726575"
-  }
+  },
+  "slides": [
+    {
+      "title": "Les mains transmettent.",
+      "description": "Des gestes textiles qui traversent les générations.",
+      "image": "hero-textile-29848182.jpg",
+      "imageAlt": "Mains au travail sur un métier traditionnel — photographie de Hong Son."
+    },
+    {
+      "title": "La beauté du geste.",
+      "description": "Le bois, les fils et les outils du tissage.",
+      "image": "hero-textile-6332002.jpg",
+      "imageAlt": "Métier à tisser traditionnel en bois — photographie de Roman Odintsov."
+    }
+  ]
 }

@@ -42,3 +42,60 @@ html body #main .figma-home-feature .textile-underline,html body #main .figma-ho
 
 /* Softened side fibres; retain the main twisted strand and drawing motion. */
 @keyframes thread-fuzz{from{opacity:0}to{opacity:.32}}
+
+/* Reversible card rise, driven by scroll position rather than a timed reveal. */
+@media(prefers-reduced-motion:no-preference){
+  #main .motion-card,#main .motion-card.motion-arrived{opacity:var(--card-opacity,1);translate:0 var(--card-rise,0px);transition:none;transition-delay:0ms}
+  #main .motion-card:focus-within{opacity:1;translate:0 0}
+}
+@media print{#main .motion-card{opacity:1!important;translate:none!important}}
+
+/* Approved double-ended coiled finish: keep knots round at every title width. */
+.thread-title-copy{padding-bottom:47px}
+.thread-title-copy>.textile-underline{height:48px;bottom:-2px}
+@media(max-width:620px){.thread-title-copy{padding-bottom:43px}.thread-title-copy>.textile-underline{height:48px}}
+@media(prefers-reduced-motion:no-preference){
+ .thread-title-copy.thread-visible .thread-knot .thread-strand{animation-duration:.65s}
+ .thread-title-copy.thread-complete .thread-strand,
+ .thread-title-copy.thread-complete .thread-fibre{animation:none;stroke-dashoffset:0}
+ .thread-title-copy.thread-complete .thread-fibre{opacity:.25}
+}
+
+/* Plain underline without ornamental ends. */
+.thread-title-copy{padding-bottom:24px}
+.thread-title-copy>.textile-underline{height:30px;bottom:-3px}
+@media(max-width:620px){.thread-title-copy{padding-bottom:21px}.thread-title-copy>.textile-underline{height:25px}}
+
+/* Longer, fuller spun cord with visible twisted strands. */
+.thread-title-copy{padding-bottom:39px}
+.thread-title-copy>.textile-underline{left:50%;translate:-50% 0;height:48px;bottom:-5px;max-width:none}
+@keyframes thread-fuzz{from{opacity:0}to{opacity:.42}}
+@media(prefers-reduced-motion:no-preference){.thread-title-copy.thread-complete .thread-fibre{opacity:.42}}
+@media(max-width:620px){.thread-title-copy{padding-bottom:33px}.thread-title-copy>.textile-underline{height:42px;bottom:-5px}}
+
+/* Two-tone cord at the full-width junction between editorial bands. */
+#main>.color-band{position:relative}
+#main>.color-band>.section-thread-seam{position:absolute;display:block;left:0;right:0;top:0;width:100%;max-width:none;height:26px;padding:0;z-index:2;pointer-events:none}
+#main>.color-band>.section-thread-seam>.textile-underline{left:0;top:-24px;bottom:auto;translate:none;height:48px;width:100%;overflow:hidden}
+#main .section-thread-seam .thread-strand:nth-child(odd){stroke:#f7f4ec;opacity:1}
+#main .section-thread-seam .thread-strand:nth-child(even){stroke:#a85f43;opacity:1}
+#main .section-thread-seam .thread-fibre{stroke:#f7f4ec}
+@media(max-width:620px){#main>.color-band>.section-thread-seam>.textile-underline{height:48px;top:-24px}}
+
+/* Continue the two-tone seam at the footer boundary. */
+html body #site-footer.compact-green-footer{position:relative;overflow:visible}
+#site-footer>.section-thread-seam{position:absolute;display:block;left:0;right:0;top:0;width:100%;max-width:none;height:26px;padding:0;z-index:2;pointer-events:none}
+#site-footer>.section-thread-seam>.textile-underline{left:0;top:-24px;bottom:auto;translate:none;height:48px;width:100%;overflow:hidden}
+#site-footer .section-thread-seam .thread-strand:nth-child(odd){stroke:#f7f4ec;opacity:1}
+#site-footer .section-thread-seam .thread-strand:nth-child(even){stroke:#a85f43;opacity:1}
+#site-footer .section-thread-seam .thread-fibre{stroke:#f7f4ec}
+
+/* Faster full appearance of the section and footer cords. */
+@media(prefers-reduced-motion:no-preference){
+ .section-thread-seam.thread-visible>.textile-underline{animation-duration:.8s}
+ .section-thread-seam.thread-visible .thread-strand{animation-duration:.55s;animation-delay:0ms}
+ .section-thread-seam.thread-visible .thread-fibre{animation-duration:.25s;animation-delay:.3s}
+}
+
+/* Hide per-slide captions while retaining carousel navigation. */
+body.home .hero-slideshow .slide-description{display:none!important}

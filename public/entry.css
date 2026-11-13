@@ -1,0 +1,14 @@
+/* Home-only entrance: logo, supplied photographs, elastic reveal. */
+html.neotisse-entering{overflow:hidden}
+html.neotisse-entering body::before{content:'';position:fixed;inset:0;background:#4b6043;z-index:1999}
+.neotisse-entry{position:fixed;inset:0;z-index:2000;overflow:hidden;background:#354638;color:#f7f4ec;pointer-events:none}
+.neotisse-entry-gallery{position:absolute;inset:0;overflow:hidden}
+.neotisse-entry-title{position:absolute;top:4vh;left:4%;right:4%;text-align:center;font:400 clamp(48px,12vw,180px)/1.1 var(--serif);letter-spacing:.06em}
+.neotisse-entry-strip{position:absolute;top:36%;left:-12%;width:124%;display:flex;gap:2vw;perspective:1000px}
+.neotisse-entry-strip img{flex:0 0 23%;width:23%;height:clamp(180px,38vh,430px);object-fit:cover;border-radius:8px;box-shadow:0 15px 35px #17251b55}
+.neotisse-entry-loader{position:absolute;inset:0;display:grid;place-items:center;background:#4b6043}
+.neotisse-entry-loader img{width:clamp(110px,15vw,185px);height:auto;filter:brightness(0) invert(1)}
+html.neotisse-entering body.home .hero-slideshow{position:relative;z-index:2100;transform-origin:50% 0;will-change:transform}
+html.neotisse-entering body.home .site-header{z-index:2200!important;will-change:transform}
+@media(max-width:620px){.neotisse-entry-title{top:12vh}.neotisse-entry-strip{width:170%;left:-35%;top:37%;gap:12px}.neotisse-entry-strip img{height:32vh;border-radius:5px}}
+@media(prefers-reduced-motion:reduce){.neotisse-entry{display:none}}

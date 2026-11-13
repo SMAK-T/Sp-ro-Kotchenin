@@ -4,3 +4,13 @@ node_modules/
 *.log
 
 data/private/
+
+public/studio/
+studio/dist/
+.sanity/
+.env.*
+!.env.example
+
+
+# Sanity Studio
+.sanity-check/

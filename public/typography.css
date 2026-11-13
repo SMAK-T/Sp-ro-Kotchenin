@@ -1,0 +1,7 @@
+/* Outfit for readable body copy; preserve display headings and navigation. */
+:root{--sans:'Outfit',Arial,sans-serif}
+body{font-family:var(--sans);font-weight:400}
+#main p,#main li,#main label,#main input,#main select,#main textarea{font-family:var(--sans)}
+#main .client-section p:not(.review-stars):not(.review-origin):not(.calendar-demo):not(.service-subtitle),#main .home-section p:not(.review-stars):not(.review-origin){font-size:17px;line-height:1.75}
+#contact-form input,#contact-form select,#contact-form textarea,#guestbook-form input,#guestbook-form textarea{font-size:16px;line-height:1.6}
+@media(max-width:600px){#main .client-section p:not(.review-stars):not(.review-origin):not(.calendar-demo):not(.service-subtitle),#main .home-section p:not(.review-stars):not(.review-origin){font-size:16px;line-height:1.7}}

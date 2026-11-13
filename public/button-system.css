@@ -46,3 +46,99 @@ html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover{bac
 html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link.nav-5,
 html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link.nav-5 *{color:#fff!important}
 @media(max-width:900px){html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link.nav-5,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link.nav-5 *{color:#354638!important}}
+
+/* More compact buttons, with comfortable text and touch targets. */
+#main .neotisse-cta.neotisse-cta{
+  min-height:40px;padding:9px 18px;font-size:16px;line-height:1.4;gap:8px;
+}
+#main .neotisse-cta.neotisse-cta::before{inset:4px}
+html body .site-header .site-nav>a.nav-link{
+  min-height:40px;padding:8px 13px;font-size:15px;line-height:1.5;
+}
+html body .site-header .site-nav{gap:10px}
+html body #main .guestbook-compose>summary{
+  width:fit-content;max-width:100%;min-width:0;min-height:40px;
+  padding:9px 18px;font-size:16px;line-height:1.4;
+}
+@media(pointer:coarse){
+  #main .neotisse-cta.neotisse-cta,
+  html body .site-header .site-nav>a.nav-link,
+  html body #main .guestbook-compose>summary{min-height:44px}
+}
+@media(min-width:901px) and (max-width:1150px){
+  html body .site-header .site-nav{gap:8px}
+  html body .site-header .site-nav>a.nav-link{padding:8px 10px;font-size:14px}
+}
+
+/* Slightly smaller navigation buttons; leave page CTAs unchanged. */
+html body .site-header .site-nav>a.nav-link{
+  min-height:36px;padding:6px 11px;font-size:15px;line-height:1.5;
+}
+html body .site-header .site-nav{gap:8px}
+@media(min-width:901px) and (max-width:1150px){
+  html body .site-header .site-nav>a.nav-link{padding:6px 9px}
+}
+@media(pointer:coarse){
+  html body .site-header .site-nav>a.nav-link{min-height:44px}
+}
+
+/* Match navigation sizing to the primary CTA shown in the hero. */
+html body .site-header .site-nav>a.nav-link{
+  box-sizing:border-box;min-height:40px;padding:9px 18px;
+  font:400 16px/1.4 var(--serif);letter-spacing:0;
+}
+html body .site-header .site-nav>a.nav-link::before{inset:4px}
+@media(min-width:901px) and (max-width:1150px){
+  html body .site-header .site-nav{gap:6px}
+}
+@media(pointer:coarse){
+  html body .site-header .site-nav>a.nav-link{min-height:44px}
+}
+
+/* Olive navigation; preserve the transparent home slideshow header. */
+html body:not(.home) .site-header,html body.home.neotisse-nav-scrolled .site-header{background:#4B6043!important;color:#f7f4ec!important}
+html body:not(.home) .site-header *,html body.home.neotisse-nav-scrolled .site-header *{color:#f7f4ec!important}
+html body:not(.home) .site-header .brand img,html body.home.neotisse-nav-scrolled .site-header .brand img{filter:brightness(0) invert(1)!important;mix-blend-mode:normal}
+html body:not(.home) .site-header .site-nav>a.nav-link,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link{background:transparent!important;border-color:#f7f4ec99!important;color:#f7f4ec!important}
+html body:not(.home) .site-header .site-nav>a.nav-link::before,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link::before{border-color:#f7f4ec70!important}
+html body:not(.home) .site-header .site-nav>a.nav-link:hover,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover{background:#ffffff14!important}
+@media(max-width:900px){html body .site-header .site-nav.open{background:#4B6043!important}html body .site-header .site-nav.open>a.nav-link,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav.open>a.nav-link *{color:#f7f4ec!important;border-color:#f7f4ec99!important}}
+
+/* Filled terracotta primary actions. */
+html body #main .neotisse-cta,html body.contact-page #main #contact-form>button.neotisse-cta{background:#a85f43!important;border-color:#a85f43!important;color:#f7f4ec!important}
+html body #main .neotisse-cta *,html body.contact-page #main #contact-form>button.neotisse-cta *{color:#f7f4ec!important}
+html body #main .neotisse-cta::before,html body.contact-page #main #contact-form>button.neotisse-cta::before{border-color:#f7f4ec99!important}
+html body #main .neotisse-cta:hover,html body.contact-page #main #contact-form>button.neotisse-cta:hover{background:#8e4e37!important;border-color:#8e4e37!important}
+
+/* Cream actions provide contrast on terracotta sections. */
+html body #main>.color-band--terracotta .neotisse-cta{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important}
+html body #main>.color-band--terracotta .neotisse-cta *{color:#354638!important}
+html body #main>.color-band--terracotta .neotisse-cta::before{border-color:#a85f4380!important}
+html body #main>.color-band--terracotta .neotisse-cta:hover{background:#ece6d9!important;border-color:#ece6d9!important}
+
+/* Transparent button backgrounds, matching the home hero navigation. */
+html body #main .neotisse-cta,html body.contact-page #main #contact-form>button.neotisse-cta{background:transparent!important;color:#354638!important;border-color:#a85f43!important}
+html body #main .neotisse-cta *,html body.contact-page #main #contact-form>button.neotisse-cta *{color:inherit!important}
+html body #main .neotisse-cta::before,html body.contact-page #main #contact-form>button.neotisse-cta::before{border-color:#a85f4380!important}
+html body #main :is(.color-band--sage,.color-band--terracotta,.curved-hero,.hero-slideshow,.figma-home-feature) .neotisse-cta{background:transparent!important;color:#f7f4ec!important;border-color:#f7f4ecb3!important}
+html body #main :is(.color-band--sage,.color-band--terracotta,.curved-hero,.hero-slideshow,.figma-home-feature) .neotisse-cta::before{border-color:#f7f4ec88!important}
+html body #main :is(.client-card,.review-card,.calendar-photo-card,#ecrivez-nous,.guestbook-compose[open]>form) .neotisse-cta,html body.contact-page #main #contact-form>button.neotisse-cta{color:#354638!important;border-color:#a85f43!important}
+html body #main :is(.client-card,.review-card,.calendar-photo-card,#ecrivez-nous,.guestbook-compose[open]>form) .neotisse-cta::before,html body.contact-page #main #contact-form>button.neotisse-cta::before{border-color:#a85f4380!important}
+html body #main .neotisse-cta:hover,html body #main>.color-band--terracotta .neotisse-cta:hover,html body.contact-page #main #contact-form>button.neotisse-cta:hover{background:transparent!important}
+
+/* Clearly mark the current page without changing navigation dimensions. */
+html body .site-header .site-nav>a.nav-link[aria-current="page"],html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"],html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link[aria-current="page"]{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important;box-shadow:0 2px 8px #17251b18}
+html body .site-header .site-nav>a.nav-link[aria-current="page"] *,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"] *,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav>a.nav-link[aria-current="page"] *{color:#354638!important}
+html body .site-header .site-nav>a.nav-link[aria-current="page"]::before,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"]::before{border-color:#a85f4380!important}
+html body .site-header .site-nav>a.nav-link[aria-current="page"]:hover,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"]:hover{background:#f7f4ec!important}
+
+/* Keep the home hero navigation transparent, including its active link. */
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"],html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"]:hover{background:transparent!important;border-color:#f7f4ec99!important;color:#fff!important;box-shadow:none}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"] *{color:#fff!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"]::before{border-color:#f7f4ec88!important}
+
+/* Align editorial action and service CTAs with the left edge of their copy. */
+html body.actions-page #main .figma-action-row .action-layout>div>.neotisse-cta.neotisse-cta,
+html body.services-page #main .service-detail>div>.neotisse-cta.neotisse-cta{
+ margin-left:0;margin-right:auto;margin-top:24px;justify-self:start;align-self:flex-start;
+}

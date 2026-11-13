@@ -25,3 +25,5 @@ La refonte visuelle utilise `public/editorial.css` et `public/editorial.js`, cha
 
 Administration : voir [le guide du backoffice](docs/backoffice.md).
 
+
+CMS Sanity : [installation et activation](docs/sanity.md).

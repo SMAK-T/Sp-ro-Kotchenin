@@ -1,0 +1,9 @@
+/* Compact, continuous partner logo strip. */
+body .partner-band .partner-gallery{gap:30px;scroll-snap-type:none;scroll-behavior:auto;scrollbar-width:none;padding:16px 0 22px;overflow-x:auto;overflow-y:hidden}
+body .partner-band .partner-gallery::-webkit-scrollbar{display:none}
+body .partner-band .partner-gallery article{flex:0 0 200px;min-width:0;scroll-snap-align:none}
+body .partner-band .partner-gallery article img{display:block;width:100%;height:110px;object-fit:contain;padding:16px 20px;margin:0 0 14px;background:#fff;border:0}
+body .partner-band .partner-gallery article h3{font-size:15px;line-height:1.4;text-align:center;padding:0}
+@media(max-width:600px){body .partner-band .partner-gallery{gap:22px}body .partner-band .partner-gallery article{flex-basis:160px}body .partner-band .partner-gallery article img{height:96px;padding:14px}body .partner-band .partner-gallery article h3{font-size:14px}}
+@media(prefers-reduced-motion:reduce){body .partner-band .partner-gallery{scrollbar-width:thin;scroll-snap-type:x proximity}body .partner-band .partner-gallery article{scroll-snap-align:start}}
+@media print{body .partner-band [data-band-clone]{display:none!important}body .partner-band .partner-gallery{flex-wrap:wrap;overflow:visible}body .partner-band .partner-autoplay{display:none}}

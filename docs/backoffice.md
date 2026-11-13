@@ -1,4 +1,6 @@
-# Administration Néotisse
+# Administration locale Néotisse
+
+Pour le nouveau CMS Sanity, consulter [le guide Sanity](sanity.md). Le backoffice décrit ci-dessous reste disponible tant que `CMS_PROVIDER=local`.
 
 ## Ouvrir le backoffice
 

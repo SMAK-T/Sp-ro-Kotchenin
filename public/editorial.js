@@ -1,8 +1,9 @@
 (async () => {
   if(window.neotisseContentReady){const content=await window.neotisseContentReady;if(content)window.neotisseWorkshops=content.events;}
+  if(window.neotisseEntryReady) await window.neotisseEntryReady;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const hero = document.querySelector('.hero-slideshow');
-  if (hero) {
+  if (hero && hero.querySelector('.hero-slide')) {
     const slides = [...hero.querySelectorAll('.hero-slide')];
     const dots = [...hero.querySelectorAll('[data-slide]')];
     const labels = JSON.parse(document.querySelector('#slide-data').textContent);
@@ -25,7 +26,7 @@
     };
     const start = () => {
       clearInterval(timer);
-      if (!paused && !document.hidden) timer = setInterval(() => show(current + 1), 5000);
+      if (!paused && !document.hidden) timer = setInterval(() => show(current + 1), 2000);
       if (pause) pause.textContent = paused ? '▷' : 'Ⅱ';
       pause?.setAttribute('aria-label', paused ? 'Lancer le diaporama' : 'Mettre le diaporama en pause');
     };
@@ -43,29 +44,6 @@
     reducedMotion.addEventListener('change', () => { paused = reducedMotion.matches; start(); });
     start();
   }
-
-  document.querySelectorAll('.partner-carousel').forEach((carousel) => {
-    const track = carousel.querySelector('.partner-gallery');
-    const move = (direction) => track.scrollBy({ left: direction * track.clientWidth * .8, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-    carousel.querySelector('.partner-prev').addEventListener('click', () => move(-1));
-    carousel.querySelector('.partner-next').addEventListener('click', () => move(1));
-    track.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
-      }
-    });
-    track.querySelectorAll('article').forEach((card) => {
-      card.addEventListener('pointermove', (event) => {
-        if (reducedMotion.matches || event.pointerType !== 'mouse') return;
-        const bounds = card.getBoundingClientRect();
-        card.style.setProperty('--tilt-x', `${((event.clientX - bounds.left) / bounds.width - .5) * 9}deg`);
-        card.style.setProperty('--tilt-y', `${-((event.clientY - bounds.top) / bounds.height - .5) * 7}deg`);
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--tilt-x', '0deg'); card.style.setProperty('--tilt-y', '0deg');
-      });
-    });
-  });
 
   const calendar = document.querySelector('.workshop-calendar');
   if (calendar) {
@@ -96,7 +74,7 @@
       }
       displayed.forEach((event) => {
         const item = document.createElement('article'); item.className = 'calendar-photo-card';
-        const image = document.createElement('img'); image.src = `assets/media/${event.image}`; image.alt = event.title; image.loading = 'lazy';
+        const image = document.createElement('img'); image.src = window.neotisseImage(event.image); image.alt = event.title; image.loading = 'lazy';
         const copy = document.createElement('div');
         const date = document.createElement('time'); date.dateTime = event.date; date.textContent = new Date(event.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
         const title = document.createElement('h4'); title.textContent = event.title;

@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "node server.cjs",
     "start": "node server.cjs",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "studio:dev": "node scripts/studio.cjs dev",
+    "studio:build": "node scripts/studio.cjs build",
+    "studio:start": "node scripts/studio.cjs dev",
+    "sanity:import": "node scripts/import-sanity.cjs"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12"
   }
 }
