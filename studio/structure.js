@@ -1,4 +1,5 @@
 export const structure=S=>S.list().title('Néotisse').items([
+  S.listItem().title('Formulaire de contact').child(S.document().schemaType('contactForm').documentId('contactForm')),
   S.listItem().title('Coordonnées et identité').child(S.document().schemaType('siteSettings').documentId('siteSettings')),
   S.listItem().title('Photothèque — images du site').child(S.list().title('Photothèque').items([
     S.documentTypeListItem('sitePhoto').title('Toutes les images utilisées'),

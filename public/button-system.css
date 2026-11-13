@@ -166,3 +166,112 @@ html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta:
 /* Center the workshop FAQ group beneath its heading. */
 html body.services-page #main #questions-ateliers>.neotisse-detail{box-sizing:border-box;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;text-align:left}
 html body.services-page #main #questions-ateliers>h2{width:100%;text-align:center;margin-bottom:32px}
+
+/* Align homepage action-card buttons with their text. */
+html body.home #main .figma-home-cards .client-card>div>.neotisse-cta.neotisse-cta{margin:24px auto 0 0;justify-self:start;align-self:flex-start}
+
+/* Hide the small brand signature over the home hero. */
+html body.home:not(.neotisse-nav-scrolled) .site-header .brand-wordmark small{display:none!important}
+
+html body .site-header .brand-wordmark small{display:none!important}
+
+/* Interior hero actions follow the same left edge as their headings and copy. */
+html body:not(.home) #main .client-intro.curved-hero>div:first-child{text-align:left}
+html body:not(.home) #main .client-intro.curved-hero>div:first-child>p{margin-bottom:0}
+html body:not(.home) #main .client-intro.curved-hero>div:first-child>.neotisse-cta.neotisse-cta{margin:28px auto 0 0;justify-self:start;align-self:flex-start;width:fit-content;max-width:100%;text-align:center}
+@media(max-width:620px){html body:not(.home) #main .client-intro.curved-hero>div:first-child>.neotisse-cta.neotisse-cta{margin-top:24px}}
+
+/* Clearly visible hover states, keeping the existing stitched button shape. */
+html body #main .neotisse-cta.neotisse-cta,html body .site-header .site-nav>a.nav-link,html body #main .guestbook-compose>summary{transition:background-color .2s,color .2s,border-color .2s,box-shadow .2s,translate .2s}
+@media(hover:hover) and (pointer:fine){
+ html body #main .neotisse-cta.neotisse-cta:hover,
+ html body.contact-page #main #contact-form>button.neotisse-cta:hover,
+ html body #main .guestbook-compose>summary:hover{background:#a85f43!important;border-color:#a85f43!important;color:#f7f4ec!important;translate:0 -3px;box-shadow:0 7px 17px #17251b25}
+ html body #main .neotisse-cta.neotisse-cta:hover *,html body #main .guestbook-compose>summary:hover *{color:#f7f4ec!important}
+ html body #main .neotisse-cta.neotisse-cta:hover::before,html body #main .guestbook-compose>summary:hover::before{border-color:#f7f4ecbb!important}
+ html body #main>.color-band--terracotta .neotisse-cta.neotisse-cta:hover{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important}
+ html body #main>.color-band--terracotta .neotisse-cta.neotisse-cta:hover *{color:#354638!important}
+ html body #main>.color-band--terracotta .neotisse-cta.neotisse-cta:hover::before{border-color:#a85f4399!important}
+ html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta:hover{background:#a85f43!important;border-color:#f7f4ec!important;color:#f7f4ec!important}
+ html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta:hover *{color:#f7f4ec!important}
+ html body .site-header .site-nav>a.nav-link:hover,
+ html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover,
+ html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important;translate:0 -2px;box-shadow:0 4px 12px #17251b22}
+ html body .site-header .site-nav>a.nav-link:hover *,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover *,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover *{color:#354638!important}
+ html body .site-header .site-nav>a.nav-link:hover::before{border-color:#a85f4380!important}
+ html body.home #main #leave-review-button:hover{background-color:#a85f43!important;color:#f7f4ec!important;border-color:#f7f4ec!important;translate:0 -3px;box-shadow:0 7px 17px #17251b25}
+ html body.home #main #leave-review-button:hover::before{border-color:#f7f4ecbb!important}
+ html body.home #main #leave-review-button:hover::after{color:#f7f4ec!important}
+}
+html body #main .neotisse-cta:active,html body .site-header .site-nav>a.nav-link:active{translate:0 0;box-shadow:none}
+@media(prefers-reduced-motion:reduce){html body #main .neotisse-cta.neotisse-cta,html body .site-header .site-nav>a.nav-link,html body #main .guestbook-compose>summary{transition:none}html body #main .neotisse-cta.neotisse-cta:hover,html body .site-header .site-nav>a.nav-link:hover,html body #main .guestbook-compose>summary:hover{translate:none!important}}
+
+/* Opaque button surfaces make actions immediately recognizable. */
+html body #main .neotisse-cta.neotisse-cta,
+html body.contact-page #main #contact-form>button.neotisse-cta{background:#a85f43!important;border-color:#a85f43!important;color:#f7f4ec!important;box-shadow:0 3px 9px #17251b16}
+html body #main .neotisse-cta.neotisse-cta *{color:inherit!important}
+html body #main .neotisse-cta.neotisse-cta::before{border-color:#f7f4ec99!important}
+html body #main :is(.color-band--sage,.color-band--terracotta,.curved-hero,.hero-slideshow,.figma-home-feature) .neotisse-cta.neotisse-cta,
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important}
+html body #main :is(.color-band--sage,.color-band--terracotta,.curved-hero,.hero-slideshow,.figma-home-feature) .neotisse-cta.neotisse-cta::before{border-color:#a85f4380!important}
+html body #main :is(.client-card,.review-card,.calendar-photo-card,#ecrivez-nous) .neotisse-cta.neotisse-cta,
+html body.contact-page #main #contact-form>button.neotisse-cta{background:#a85f43!important;border-color:#a85f43!important;color:#f7f4ec!important}
+html body #main :is(.client-card,.review-card,.calendar-photo-card,#ecrivez-nous) .neotisse-cta.neotisse-cta::before,
+html body.contact-page #main #contact-form>button.neotisse-cta::before{border-color:#f7f4ec99!important}
+html body .site-header .site-nav>a.nav-link,
+html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link,
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link{background:#a85f43!important;border-color:#f7f4ec80!important;color:#f7f4ec!important;box-shadow:0 2px 7px #17251b1a}
+html body .site-header .site-nav>a.nav-link *,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link *{color:#f7f4ec!important}
+html body .site-header .site-nav>a.nav-link::before{border-color:#f7f4ec88!important}
+html body .site-header .site-nav>a.nav-link[aria-current="page"],html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"]{background:#f7f4ec!important;color:#354638!important;border-color:#f7f4ec!important}
+html body .site-header .site-nav>a.nav-link[aria-current="page"] *,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link[aria-current="page"] *{color:#354638!important}
+html body .site-header .site-nav>a.nav-link[aria-current="page"]::before{border-color:#a85f4380!important}
+@media(hover:hover) and (pointer:fine){
+ html body #main .neotisse-cta.neotisse-cta:hover,html body.contact-page #main #contact-form>button.neotisse-cta:hover{background:#87462f!important;border-color:#87462f!important;color:#f7f4ec!important}
+ html body #main :is(.color-band--sage,.color-band--terracotta,.curved-hero,.hero-slideshow,.figma-home-feature) .neotisse-cta.neotisse-cta:hover{background:#e7dccb!important;border-color:#e7dccb!important;color:#17251b!important}
+ html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta:hover{background:#e7dccb!important;border-color:#e7dccb!important;color:#17251b!important}
+ html body #main :is(.client-card,.review-card,.calendar-photo-card,#ecrivez-nous) .neotisse-cta.neotisse-cta:hover{background:#87462f!important;color:#f7f4ec!important}
+ html body .site-header .site-nav>a.nav-link:hover,html body.home.neotisse-nav-scrolled .site-header .site-nav>a.nav-link:hover,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover{background:#f7f4ec!important;color:#354638!important}
+ html body .site-header .site-nav>a.nav-link:hover *,html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover *{color:#354638!important}
+}
+
+/* Explicit dark lettering on cream hero actions, including nested text. */
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta,
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta *{color:#354638!important}
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta{background:#f7f4ec!important;border-color:#f7f4ec!important;text-shadow:none!important}
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta::before{border-color:#a85f4380!important}
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta:hover,
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta:hover *{color:#17251b!important}
+html body.home #main .hero.hero-slideshow .hero-actions .neotisse-cta.neotisse-cta:hover{background:#e7dccb!important;border-color:#e7dccb!important}
+
+/* Readable cream action over the homepage feature photograph. */
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta,
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta *{color:#354638!important;text-shadow:none!important}
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta{background:#f7f4ec!important;border-color:#f7f4ec!important}
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta::before{border-color:#a85f4380!important}
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta:hover{background:#e7dccb!important;border-color:#e7dccb!important}
+html body.home #main .color-band .figma-home-feature>div .neotisse-cta.neotisse-cta:hover *{color:#354638!important}
+
+/* No filled navigation buttons over the home hero. */
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link,
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"]{background:transparent!important;background-image:none!important;box-shadow:none!important;border-color:#f7f4ec99!important;color:#f7f4ec!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link *,
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link[aria-current="page"] *{color:#f7f4ec!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link::before{border-color:#f7f4ec88!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover{background:transparent!important;background-image:none!important;box-shadow:none!important;color:#f7f4ec!important}
+html body.home:not(.neotisse-nav-scrolled) .site-header .site-nav:not(.open)>a.nav-link:hover *{color:#f7f4ec!important}
+
+/* Preserve the filled navigation on every interior page and hero. */
+html body:not(.home) .site-header .site-nav>a.nav-link{background:#a85f43!important;color:#f7f4ec!important;border-color:#f7f4ec80!important}
+html body:not(.home) .site-header .site-nav>a.nav-link *{color:#f7f4ec!important}
+html body:not(.home) .site-header .site-nav>a.nav-link::before{border-color:#f7f4ec88!important}
+html body:not(.home) .site-header .site-nav>a.nav-link[aria-current="page"]{background:#f7f4ec!important;color:#354638!important;border-color:#f7f4ec!important}
+html body:not(.home) .site-header .site-nav>a.nav-link[aria-current="page"] *{color:#354638!important}
+html body:not(.home) .site-header .site-nav>a.nav-link[aria-current="page"]::before{border-color:#a85f4380!important}
+@media(hover:hover) and (pointer:fine){html body:not(.home) .site-header .site-nav>a.nav-link:hover{background:#f7f4ec!important;color:#354638!important}html body:not(.home) .site-header .site-nav>a.nav-link:hover *{color:#354638!important}html body:not(.home) .site-header .site-nav>a.nav-link:hover::before{border-color:#a85f4380!important}}
+
+/* Keep FAQ separators and expanded answers inside a readable centered column. */
+html body.services-page #main #questions-ateliers>.neotisse-detail{width:100%;max-width:720px;margin-left:auto;margin-right:auto;padding:20px 0;overflow-wrap:break-word;box-sizing:border-box}
+html body.services-page #main #questions-ateliers>.neotisse-detail>summary{white-space:normal;max-width:100%;line-height:1.45}
+html body.services-page #main #questions-ateliers>.neotisse-detail :is(p,ul,ol){max-width:100%;box-sizing:border-box;line-height:1.8}
+html body.services-page #main #questions-ateliers>.neotisse-detail :is(ul,ol){padding-left:24px}

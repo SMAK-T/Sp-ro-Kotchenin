@@ -6,6 +6,14 @@ const enabled=f('enabled','Afficher sur le site','boolean',{initialValue:true,de
 const photo=(title='Photo',mandatory=true)=>f('image',title,'image',{options:{hotspot:true},validation:R=>mandatory?R.required().assetRequired():R,fields:[f('alt','Description de l’image','string',{validation:required})]})
 const doc=(name,title,fields,preview)=>defineType({name,title,type:'document',fields,preview:preview||{select:{title:'title',media:'image'}},orderings:fields.some(field=>field.name==='order')?[{title:'Ordre d’affichage',name:'orderAsc',by:[{field:'order',direction:'asc'}]}]:fields.some(field=>field.name==='createdAt')?[{title:'Plus récents',name:'recent',by:[{field:'createdAt',direction:'desc'}]}]:[]})
 export const schemaTypes=[
+ doc('contactForm','Formulaire de contact',[
+  f('title','Titre du formulaire','string',{validation:required}),f('intro','Introduction','text',{rows:3}),
+  f('nameLabel','Libellé du nom','string',{validation:required}),f('emailLabel','Libellé de l’e-mail','string',{validation:required}),
+  f('motifLabel','Libellé du motif','string',{validation:required}),f('messageLabel','Libellé du message','string',{validation:required}),
+  f('appointmentLabel','Motif : rendez-vous','string',{validation:required}),f('workshopLabel','Motif : atelier / intervention','string',{validation:required}),f('otherLabel','Motif : autre demande','string',{validation:required}),
+  f('consent','Texte du consentement','text',{rows:3,validation:required}),f('submitLabel','Texte du bouton d’envoi','string',{validation:required}),
+  f('successTitle','Titre après l’envoi','string',{validation:required}),f('successMessage','Message après l’envoi','text',{rows:4,validation:required}),
+ ],{select:{title:'title'}}),
  defineType({name:'sitePhoto',title:'Photothèque du site',type:'document',fields:[
   f('title','Nom de l’image','string',{readOnly:true}),
   f('image','Aperçu','image',{readOnly:true}),

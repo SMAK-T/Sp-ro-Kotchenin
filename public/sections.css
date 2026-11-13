@@ -264,3 +264,32 @@ html body.agenda-page #main .workshop-calendar button[data-month="today"]{backgr
 html body.agenda-page #main .workshop-calendar :is(.calendar-today,button[data-month="today"]) *{color:#354638!important}
 html body.agenda-page #main .workshop-calendar :is(.calendar-today,button[data-month="today"])::before{border-color:#a85f4380!important}
 html body.agenda-page #main .workshop-calendar :is(.calendar-today,button[data-month="today"]):hover{background:#ece6d9!important;color:#000!important}
+
+/* Balanced service overview instead of scattered text links. */
+html body.home #main #services-apercu .service-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;width:100%;max-width:1200px;margin:32px auto 0}
+html body.home #main #services-apercu .service-chips>a{box-sizing:border-box;flex:1 1 185px;max-width:240px;min-width:0;min-height:105px;display:flex;align-items:center;justify-content:center;padding:22px 18px;margin:0;border:1px solid #f7f4ec99;border-radius:12px;background:#f7f4ec!important;color:#354638!important;font:400 21px/1.35 var(--serif);text-align:center;text-decoration:none;overflow-wrap:normal;transition:translate .2s,background-color .2s,box-shadow .2s}
+html body.home #main #services-apercu .service-chips>a *{color:#354638!important}
+@media(hover:hover){html body.home #main #services-apercu .service-chips>a:hover{background:#e7dccb!important;translate:0 -4px;box-shadow:0 8px 20px #17251b20;text-decoration:none}}
+@media(max-width:700px){html body.home #main #services-apercu .service-chips{gap:12px}html body.home #main #services-apercu .service-chips>a{flex-basis:calc(50% - 12px);max-width:none;min-height:95px;font-size:20px}html body.home #main #services-apercu .service-chips>a:last-child{flex-grow:0;flex-basis:calc(50% - 6px)}}
+@media(max-width:420px){html body.home #main #services-apercu .service-chips>a,html body.home #main #services-apercu .service-chips>a:last-child{flex-basis:100%;min-height:75px}}
+@media(prefers-reduced-motion:reduce){html body.home #main #services-apercu .service-chips>a{transition:none;translate:none!important}}
+
+/* Clean service headings without underlining in any interaction state. */
+html body.home #main #services-apercu h2,
+html body.home #main #services-apercu h2 *,
+html body.home #main #services-apercu .service-chips>a,
+html body.home #main #services-apercu .service-chips>a:is(:hover,:focus,:active),
+html body.home #main #services-apercu .service-chips>a *{text-decoration:none!important;border-bottom:0}
+
+/* Keep this gallery caption on one line within its card. */
+body.actions-page .entry-content .media-experiment-grid figure:nth-child(3) strong{font-size:clamp(15px,1.45vw,23px);white-space:nowrap;letter-spacing:-.015em}
+@media(min-width:521px) and (max-width:1000px){body.actions-page .entry-content .media-experiment-grid figure:nth-child(3) strong{font-size:clamp(16px,2.6vw,23px)}}
+@media(max-width:520px){body.actions-page .entry-content .media-experiment-grid figure:nth-child(3) strong{font-size:clamp(16px,4.6vw,23px)}}
+
+/* Keep the experimentation caption together without overflowing its column. */
+body.actions-page .entry-content .media-story-grid figure:last-child strong{font-size:clamp(15px,1.45vw,23px);white-space:nowrap;letter-spacing:-.015em}
+@media(max-width:700px){body.actions-page .entry-content .media-story-grid figure:last-child strong{font-size:clamp(16px,3.8vw,23px)}}
+
+/* Bring gallery captions closer to their descriptions. */
+body.actions-page .entry-content .media-experiment-grid strong{min-height:0;margin-bottom:0}
+body.actions-page .entry-content .media-experiment-grid figcaption span{margin-top:10px}

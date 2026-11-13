@@ -3,7 +3,8 @@
   let finish;
   window.neotisseEntryReady=new Promise(resolve=>{finish=resolve;});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  if(reduced.matches||location.hash){finish();return;}
+  const navigation=performance.getEntriesByType('navigation')[0];
+  if(reduced.matches||navigation?.type!=='reload'){finish();return;}
   root.classList.add('neotisse-entering');
   const run=async()=>{
     const hero=document.querySelector('.hero-slideshow'),header=document.querySelector('.site-header');

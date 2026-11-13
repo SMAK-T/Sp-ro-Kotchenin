@@ -1,0 +1,103 @@
+/* À propos : panorama puis deux colonnes éditoriales, hero inchangé. */
+body.a-propos-page .about-reference-column .about-photo-break {
+  display: block;
+  width: 100%;
+  margin: 12px 0 30px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+body.a-propos-page .about-reference-column .about-photo-break img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: inherit;
+}
+body.a-propos-page .about-reference-column .about-photo-break--detail { margin-block: 30px; }
+body.a-propos-page .about-reference-column .about-photo-break--detail img { aspect-ratio: 16 / 9; }
+body.a-propos-page .about-reference-column .about-photo-break--closing { margin-top: 24px; }
+body.a-propos-page .about-reference-column .about-photo-break--closing img { aspect-ratio: 4 / 5; object-position: center; }
+html body.a-propos-page #main .about-textile-story .meet-neotisse-centered {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: start;
+  align-self: start;
+  width: fit-content;
+  max-width: 100%;
+  margin: 6px 0 0;
+}
+@media (max-width: 700px) {
+  html body.a-propos-page #main .about-textile-story .meet-neotisse-centered {
+    display: inline-flex;
+    margin: 6px 0 0;
+  }
+}
+body.a-propos-page .about-panorama-band { padding: 0; }
+body.a-propos-page .about-panorama { width: 100%; max-width: none; margin: 0; padding: 0; }
+body.a-propos-page .about-panorama img { display: block; width: 100%; height: clamp(280px, 42vw, 620px); object-fit: cover; object-position: center 45%; border-radius: 0; }
+body.a-propos-page .about-reference-brands { padding-block: clamp(48px, 6vw, 80px); }
+body.a-propos-page .about-reference-brands > h2 { text-align: left; margin: 0 0 50px; font-size: clamp(34px, 3.5vw, 50px); }
+body.a-propos-page .about-reference-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+body.a-propos-page .about-reference-column { min-width: 0; }
+body.a-propos-page .about-reference-column > img { display: block; width: 100%; aspect-ratio: 1.6; object-fit: cover; border-radius: 0; margin-bottom: 30px; }
+body.a-propos-page .about-reference-column > section { width: 100%; max-width: none; margin: 0; padding: 0 0 32px; background: transparent; }
+body.a-propos-page .about-reference-column h2 { font-size: clamp(27px, 2.4vw, 35px); text-align: left; margin: 0 0 22px; }
+body.a-propos-page .about-reference-column h3 { font-size: 24px; margin: 22px 0 10px; }
+body.a-propos-page .about-reference-column p { font-size: 17px; line-height: 1.75; margin: 0 0 18px; }
+body.a-propos-page .about-reference-column .tree-grid { display: block; }
+body.a-propos-page .about-reference-column .tree-grid article { border: 0; padding: 0; margin: 0 0 22px; background: transparent; }
+body.a-propos-page .about-reference-column .about-encounter-layout { display: block; margin: 24px 0; }
+body.a-propos-page .about-reference-column .about-encounter-layout > img { display: none; }
+body.a-propos-page .about-reference-column .about-audience-columns { display: block; }
+body.a-propos-page .about-reference-column .about-audience-columns article { padding: 0; border: 0; margin: 0 0 32px; }
+body.a-propos-page .about-reference-column #univers-textile { padding: 0 0 32px; max-width: none; }
+body.a-propos-page .about-reference-column #rencontre-neotisse { padding: 0 0 32px; }
+body.a-propos-page .about-reference-column .neotisse-cta { margin-top: 16px; }
+body.a-propos-page .about-reference-column #univers-textile > h2,
+body.a-propos-page .about-reference-column #rencontre-neotisse > h2,
+body.a-propos-page .about-reference-column .about-section-intro { text-align: left; }
+@media (max-width: 760px) {
+  body.a-propos-page .about-reference-columns { grid-template-columns: 1fr; gap: 40px; }
+  body.a-propos-page .about-reference-brands > h2 { margin-bottom: 32px; }
+}
+body.a-propos-page .about-alternating-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 90px);
+  padding-block: clamp(48px, 6vw, 88px);
+}
+body.a-propos-page .about-alternating-row > img {
+  width: 100%;
+  height: clamp(430px, 43vw, 660px);
+  object-fit: cover;
+  border-radius: 18px;
+}
+body.a-propos-page .about-alternating-row--reverse > img { order: 2; }
+body.a-propos-page .about-alternating-copy { min-width: 0; }
+body.a-propos-page .about-alternating-copy h2 {
+  text-align: left;
+  font-size: clamp(32px, 3.2vw, 48px);
+  margin: 0 0 28px;
+}
+body.a-propos-page .about-alternating-copy .tree-grid { display: block; }
+body.a-propos-page .about-alternating-copy .tree-grid article {
+  padding: 0;
+  margin: 0 0 24px;
+  border: 0;
+  background: transparent;
+}
+body.a-propos-page .about-alternating-copy h3 { font-size: 25px; margin: 0 0 9px; }
+body.a-propos-page .about-alternating-copy p { line-height: 1.75; margin: 0; }
+body.a-propos-page #rencontre-neotisse { padding-block: clamp(48px, 6vw, 88px); }
+body.a-propos-page #univers-textile {
+  max-width: 1050px;
+  padding-block: clamp(48px, 6vw, 88px);
+}
+body.a-propos-page #publics-neotisse .about-audience-columns { gap: clamp(32px, 6vw, 90px); }
+@media (max-width: 760px) {
+  body.a-propos-page .about-alternating-row { grid-template-columns: 1fr; gap: 30px; }
+  body.a-propos-page .about-alternating-row > img { height: 360px; order: 0; }
+  body.a-propos-page .about-alternating-copy h2 { font-size: 34px; }
+}

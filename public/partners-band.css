@@ -7,3 +7,23 @@ body .partner-band .partner-gallery article h3{font-size:15px;line-height:1.4;te
 @media(max-width:600px){body .partner-band .partner-gallery{gap:22px}body .partner-band .partner-gallery article{flex-basis:160px}body .partner-band .partner-gallery article img{height:96px;padding:14px}body .partner-band .partner-gallery article h3{font-size:14px}}
 @media(prefers-reduced-motion:reduce){body .partner-band .partner-gallery{scrollbar-width:thin;scroll-snap-type:x proximity}body .partner-band .partner-gallery article{scroll-snap-align:start}}
 @media print{body .partner-band [data-band-clone]{display:none!important}body .partner-band .partner-gallery{flex-wrap:wrap;overflow:visible}body .partner-band .partner-autoplay{display:none}}
+
+/* Commandes centrées et contrastées pour la bande des partenaires. */
+html body #main .partner-toolbar { justify-content: center; margin-bottom: 28px; }
+html body #main .partner-toolbar > span { display: none; }
+html body #main .partner-toolbar > div { justify-content: center; gap: 14px; }
+html body #main .partner-toolbar button {
+ display: inline-flex; align-items: center; justify-content: center;
+ width: 54px; min-width: 54px; height: 50px; padding: 0;
+ background: #a85f43 !important; color: #f7f4ec !important;
+ border: 1px solid #a85f43; border-radius: 7px;
+ font-size: 29px; font-weight: 600; line-height: 1;
+ box-shadow: 0 3px 9px #35463820;
+ transition: background .2s, transform .2s, box-shadow .2s;
+}
+html body #main .partner-toolbar button::before { border-color: #f7f4ec88; }
+html body #main .partner-toolbar button:is(:hover,:focus-visible) {
+ background: #354638 !important; color: #f7f4ec !important;
+ transform: translateY(-2px); box-shadow: 0 5px 12px #35463830;
+}
+html body #main .partner-toolbar button:focus-visible { outline: 3px solid #a85f43; outline-offset: 4px; }
