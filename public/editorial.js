@@ -109,7 +109,7 @@
         button.addEventListener('click', () => { selected = date; render(day); });
         grid.append(button);
       }
-      calendar.querySelector('.calendar-status').textContent = 'Sélectionnez une date pour consulter ses rendez-vous.';
+      calendar.querySelector('.calendar-status').textContent = '';
       dayPanel();
       if (focusDay) grid.querySelectorAll('.calendar-date')[focusDay - 1]?.focus({ preventScroll: true });
     };

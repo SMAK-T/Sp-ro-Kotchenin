@@ -38,7 +38,7 @@
     });
     track.addEventListener('pointerout',event=>{const card=event.target.closest('article');if(card&&!card.contains(event.relatedTarget)){card.style.setProperty('--tilt-x','0deg');card.style.setProperty('--tilt-y','0deg')}});
     if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;resume()},{rootMargin:'100px'}).observe(carousel);else visible=true;
-    const hint=carousel.querySelector('.partner-hint');if(hint)hint.textContent='Défilement automatique · survolez la bande pour faire une pause.';
+    carousel.querySelector('.partner-hint')?.remove();
     reduced.addEventListener('change',build);document.addEventListener('visibilitychange',resume);
     if('ResizeObserver'in window)new ResizeObserver(build).observe(track);else addEventListener('resize',build);
     build();

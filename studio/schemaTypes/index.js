@@ -6,6 +6,14 @@ const enabled=f('enabled','Afficher sur le site','boolean',{initialValue:true,de
 const photo=(title='Photo',mandatory=true)=>f('image',title,'image',{options:{hotspot:true},validation:R=>mandatory?R.required().assetRequired():R,fields:[f('alt','Description de l’image','string',{validation:required})]})
 const doc=(name,title,fields,preview)=>defineType({name,title,type:'document',fields,preview:preview||{select:{title:'title',media:'image'}},orderings:fields.some(field=>field.name==='order')?[{title:'Ordre d’affichage',name:'orderAsc',by:[{field:'order',direction:'asc'}]}]:fields.some(field=>field.name==='createdAt')?[{title:'Plus récents',name:'recent',by:[{field:'createdAt',direction:'desc'}]}]:[]})
 export const schemaTypes=[
+ defineType({name:'sitePhoto',title:'Photothèque du site',type:'document',fields:[
+  f('title','Nom de l’image','string',{readOnly:true}),
+  f('image','Aperçu','image',{readOnly:true}),
+  f('category','Type','string',{readOnly:true}),
+  f('locations','Utilisée dans','array',{of:[{type:'string'}],readOnly:true}),
+  f('localFile','Fichier du site','string',{readOnly:true}),
+  f('assetUrl','Lien vers l’image','url',{readOnly:true}),
+ ],preview:{select:{title:'title',media:'image',locations:'locations'},prepare({title,media,locations}){return {title,media,subtitle:(locations||[]).join(' · ')}}}}),
  doc('siteSettings','Coordonnées et identité',[
   f('title','Nom de l’association','string',{initialValue:'Néotisse',validation:required}),f('tagline','Signature'),
   f('email','Adresse e-mail','string',{validation:R=>R.required().email()}),f('phone','Téléphone'),f('city','Localisation'),f('instagram','Instagram','url'),f('facebook','Facebook','url'),
@@ -24,7 +32,7 @@ export const schemaTypes=[
   f('name','Nom ou pseudonyme','string',{validation:required}),f('email','E-mail privé','string',{validation:R=>R.email()}),f('rating','Note sur 5','number',{validation:R=>R.required().integer().min(1).max(5)}),
   f('message','Témoignage','text',{validation:required,rows:6}),f('reply','Réponse de Néotisse','text',{rows:4}),
   f('demo','Avis fictif de démonstration','boolean',{initialValue:false,description:'Cochez pour un exemple de mise en page, pas un témoignage réel.'}),f('approved','Avis validé pour publication','boolean',{initialValue:false,description:'Validez puis publiez pour afficher cet avis sur le site.'}),f('createdAt','Reçu le','datetime',{readOnly:true}),
- ],{select:{title:'name',subtitle:'message'}}),
+ ],{select:{title:'name',message:'message',approved:'approved',id:'_id'},prepare({title,message,approved,id}){const status=id?.startsWith('drafts.')?'Brouillon / modifications à publier':approved?'Publié sur le site':'Non publié / à valider';return {title,subtitle:status+' · '+(message||'')}}}),
  doc('message','Message reçu',[
   f('name','Nom','string',{readOnly:true}),f('email','Adresse e-mail','string',{readOnly:true}),f('motif','Motif','string',{readOnly:true}),f('message','Message','text',{readOnly:true,rows:10}),f('createdAt','Reçu le','datetime',{readOnly:true}),f('read','Traité / lu','boolean',{initialValue:false}),
  ],{select:{title:'name',subtitle:'motif'}}),

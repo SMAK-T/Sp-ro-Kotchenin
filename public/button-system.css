@@ -142,3 +142,27 @@ html body.actions-page #main .figma-action-row .action-layout>div>.neotisse-cta.
 html body.services-page #main .service-detail>div>.neotisse-cta.neotisse-cta{
  margin-left:0;margin-right:auto;margin-top:24px;justify-self:start;align-self:flex-start;
 }
+
+html body.a-propos-page #main .meet-neotisse-centered.neotisse-cta{margin-left:auto;margin-right:auto;justify-self:center;align-self:center}
+
+/* A clearly visible guestbook action on the olive section. */
+html body.home #main #livre-d-or .guestbook-compose>summary{background:#f7f4ec!important;color:#354638!important;border:1px solid #f7f4ec!important;box-shadow:0 3px 10px #17251b18}
+html body.home #main #livre-d-or .guestbook-compose>summary *{color:#354638!important}
+html body.home #main #livre-d-or .guestbook-compose>summary::before{border-color:#a85f4380!important}
+html body.home #main #livre-d-or .guestbook-compose>summary:hover{background:#ece6d9!important}
+html body.home #main #livre-d-or .guestbook-compose>summary:focus-visible{outline:3px solid #f7f4ec;outline-offset:4px}
+
+/* Keep the guestbook opener opaque against the olive background. */
+html body.home #main #leave-review-button{background-image:none!important;opacity:1!important}
+html body.home #main #leave-review-button::before{border-color:#a85f4399!important}
+html body.home #main #leave-review-button::after{color:#354638!important}
+
+/* High-contrast action on the olive interior heroes. */
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta{background:#f7f4ec!important;border-color:#f7f4ec!important;color:#354638!important;box-shadow:0 3px 10px #17251b14}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta *{color:#354638!important}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta::before{border-color:#a85f4380!important}
+html body:not(.home) #main .client-intro.curved-hero .neotisse-cta.neotisse-cta:hover{background:#ece6d9!important;border-color:#ece6d9!important}
+
+/* Center the workshop FAQ group beneath its heading. */
+html body.services-page #main #questions-ateliers>.neotisse-detail{box-sizing:border-box;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;text-align:left}
+html body.services-page #main #questions-ateliers>h2{width:100%;text-align:center;margin-bottom:32px}

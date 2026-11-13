@@ -1,7 +1,7 @@
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.site-nav');
 toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){toggle.click();toggle.focus()}});
-const form=document.querySelector('#contact-form');if(form){const params=new URLSearchParams(location.search);if(['devis','atelier','autre','rendez-vous'].includes(params.get('motif')))form.elements.motif.value=params.get('motif');const service=params.get('prestation')||params.get('service');if(service)form.elements.message.value=`Bonjour, je souhaite des informations sur : ${service}.\n`;}
+const form=document.querySelector('#contact-form');if(form){const params=new URLSearchParams(location.search);const requestedMotif=params.get('motif')==='devis'?'atelier':params.get('motif');if(['atelier','autre','rendez-vous'].includes(requestedMotif))form.elements.motif.value=requestedMotif;const service=params.get('prestation')||params.get('service');if(service)form.elements.message.value=`Bonjour, je souhaite des informations sur : ${service}.\n`;}
 
 
 

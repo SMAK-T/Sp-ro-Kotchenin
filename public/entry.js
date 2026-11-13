@@ -18,7 +18,7 @@
     watchdog=setTimeout(cleanup,9500);
     reduced.addEventListener('change',onReduced);
     const animate=(el,frames,duration,delay=0,easing='cubic-bezier(.22,.65,.25,1)')=>{
-      const a=el.animate(frames,{duration,delay,easing,fill:'both'});animations.push(a);return a;
+      const a=el.animate(frames,{duration:duration*.5,delay:delay*.5,easing,fill:'both'});animations.push(a);return a;
     };
     try{
       overlay=document.createElement('div');overlay.className='neotisse-entry';overlay.setAttribute('aria-hidden','true');
@@ -28,18 +28,12 @@
         const image=document.createElement('img');image.src='assets/media/'+file;image.alt='';strip.append(image);
       });
       document.body.append(overlay);
-      const distance=Math.round(innerHeight*1.15);
-      const spring=[
-        {transform:`translateY(-${distance}px) scaleY(1.1)`,borderRadius:'0 0 40% 40%',offset:0},
-        {transform:'translateY(8vh) scaleY(.92)',borderRadius:'0',offset:.52},
-        {transform:'translateY(-4vh) scaleY(1.04)',offset:.7},
-        {transform:'translateY(2vh) scaleY(.98)',offset:.83},
-        {transform:'translateY(-.6vh) scaleY(1.006)',offset:.94},
-        {transform:'translateY(0) scaleY(1)',borderRadius:'0',offset:1}
-      ];
-      // Reserve the final reveal immediately, so the actual home hero stays above the frame.
-      const entrance=animate(hero,spring,1900,3750,'linear');
-      animate(header,[{transform:`translateY(-${distance}px)`,opacity:0},{transform:'translateY(0)',opacity:1}],850,4650);
+      // Crossfade into the real home hero without any elastic descent.
+      animate(hero,[{opacity:0},{opacity:1}],1400,3750);
+      animate(overlay.querySelector('.neotisse-entry-gallery'),[{transform:'scale(1)',opacity:1},{transform:'scale(1.12)',opacity:0}],1400,3750);
+      animate(header,[{opacity:0},{opacity:1}],800,4650);
+      const heroPhoto=hero.querySelector('.hero-slide.is-active img');
+      if(heroPhoto)animate(heroPhoto,[{transform:'scale(1.12)'},{transform:'scale(1)'}],2100,3750);
       animate(overlay.querySelector('.neotisse-entry-loader img'),[
         {opacity:0,transform:'scale(.1) rotate(-12deg)',offset:0},
         {opacity:1,transform:'scale(1.2) rotate(2deg)',offset:.4},
@@ -55,9 +49,9 @@
         animate(image,[{transform:'rotate(0deg) translateY(0)'},{transform:`rotate(${angle}deg) translateY(${y}px)`,offset:.65},{transform:`rotate(${angle*.7}deg) translateY(${y*.8}px)`}],1400,2450+i*50);
       });
       const copy=hero.querySelector('.hero-content');
-      if(copy)animate(copy,[{transform:'translateY(-35px)',opacity:0},{transform:'translateY(10px)',opacity:1,offset:.6},{transform:'translateY(0)',opacity:1}],1200,4350);
-      hero.querySelectorAll('.hero-actions a').forEach((button,i)=>animate(button,[{opacity:0,transform:'translateY(25px)'},{opacity:1,transform:'translateY(-4px)',offset:.8},{opacity:1,transform:'translateY(0)'}],800,4950+i*120));
-      await entrance.finished;await new Promise(resolve=>setTimeout(resolve,250));cleanup();
+      if(copy)animate(copy,[{transform:'translateY(22px)',opacity:0},{transform:'translateY(0)',opacity:1}],900,4350);
+      hero.querySelectorAll('.hero-actions a').forEach((button,i)=>animate(button,[{opacity:0,transform:'translateY(25px)'},{opacity:1,transform:'translateY(0)'}],800,4950+i*120));
+      await Promise.all(animations.map(animation=>animation.finished));cleanup();
     }catch{cleanup();}
   };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
